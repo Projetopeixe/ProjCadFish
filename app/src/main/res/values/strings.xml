@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">CadFish</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="text_logar">LOGAR</string>
+    <string name="ainda_nao_e_cadastrado">Ainda não é cadastrado? Cadastre-se</string>
+    <string name="texto_email">Digite o seu email:</string>
+    <string name="texto_senha">Digite sua senha:</string>
+</resources>
