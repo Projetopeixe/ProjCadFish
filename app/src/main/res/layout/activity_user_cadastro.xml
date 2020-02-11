@@ -11,8 +11,8 @@
         android:id="@+id/viewPagerTab"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:background="@color/colorPrimary"
-
+        android:background="@color/colorPrimaryDark"
+        android:elevation="0dp"
         app:stl_distributeEvenly="true"
         app:stl_defaultTabBackground="?attr/selectableItemBackground"
         app:stl_defaultTabTextAllCaps="true"
