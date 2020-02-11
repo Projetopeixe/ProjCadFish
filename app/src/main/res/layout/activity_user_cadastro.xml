@@ -8,7 +8,7 @@
     tools:context=".UserCadastroActivity">
 
     <com.ogaclejapan.smarttablayout.SmartTabLayout
-        android:id="@+id/viewPagertab"
+        android:id="@+id/viewPagerTab"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         app:stl_indicatorAlwaysInCenter="false"
@@ -39,10 +39,10 @@
         />
 
     <androidx.viewpager.widget.ViewPager
-        android:id="@+id/viewpager"
+        android:id="@+id/viewPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/viewPagertab"
+        android:layout_below="@id/viewPagerTab"
         />
 
 </LinearLayout>

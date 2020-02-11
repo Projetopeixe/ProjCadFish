@@ -23,8 +23,8 @@ public class UserCadastroActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_cadastro);
 
-        smartTabLayout = findViewById(R.id.viewPagertab);
-        viewPager = findViewById(R.id.viewpager);
+        smartTabLayout = findViewById(R.id.viewPagerTab);
+        viewPager = findViewById(R.id.viewPager);
 
         FragmentPagerItemAdapter adapter = new FragmentPagerItemAdapter(
                 getSupportFragmentManager(),
@@ -34,11 +34,8 @@ public class UserCadastroActivity extends AppCompatActivity {
                 .create()
         );
 
-        ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
-        viewPager.setAdapter(adapter);
-
-        SmartTabLayout viewPagerTab = (SmartTabLayout) findViewById(R.id.viewPagertab);
-        viewPagerTab.setViewPager(viewPager);
+        viewPager.setAdapter( adapter );
+        smartTabLayout.setViewPager( viewPager );
 
     }
 }
