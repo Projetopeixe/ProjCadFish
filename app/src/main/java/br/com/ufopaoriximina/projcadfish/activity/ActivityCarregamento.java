@@ -1,10 +1,12 @@
-package br.com.ufopaoriximina.projcadfish;
+package br.com.ufopaoriximina.projcadfish.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+
+import br.com.ufopaoriximina.projcadfish.R;
 
 public class ActivityCarregamento extends AppCompatActivity {
 

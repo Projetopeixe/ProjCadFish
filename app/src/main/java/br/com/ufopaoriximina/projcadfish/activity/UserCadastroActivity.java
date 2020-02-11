@@ -1,4 +1,4 @@
-package br.com.ufopaoriximina.projcadfish;
+package br.com.ufopaoriximina.projcadfish.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -12,6 +12,7 @@ import com.ogaclejapan.smarttablayout.utils.v4.FragmentPagerItems;
 
 import br.com.ufopaoriximina.projcadfish.Fragement.GuiaFragment;
 import br.com.ufopaoriximina.projcadfish.Fragement.PescadorFragment;
+import br.com.ufopaoriximina.projcadfish.R;
 
 public class UserCadastroActivity extends AppCompatActivity {
 
