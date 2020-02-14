@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import br.com.ufopaoriximina.projcadfish.R;
+import br.com.ufopaoriximina.projcadfish.activity.cadastros_usuarios.cadastro_guia.Passo1CdGuia;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,13 +24,23 @@ public class GuiaFragment extends Fragment {
         // Required empty public constructor
     }
 
-    private Button btProx;
+    private Button btStart;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_guia2, container, false);
+
+        btStart = view.findViewById(R.id.iniciarCadGuia);
+        btStart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), Passo1CdGuia.class);
+                startActivity(i);
+
+            }
+        });
 
         return view;
     }
