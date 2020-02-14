@@ -38,6 +38,6 @@ public class UserCadastroActivity extends AppCompatActivity {
 
         viewPager.setAdapter( adapter );
         smartTabLayout.setViewPager( viewPager );
-
+        //afka
     }
 }
