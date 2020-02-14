@@ -58,6 +58,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView3">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/nome_pescador"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Insira seu nome" />
@@ -74,6 +75,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/email_pescador"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Insira seu E-mail" />
@@ -90,13 +92,14 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout5">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/senha_pescador"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Insira sua senha" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/proximo_passo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/botao_cadastro"
