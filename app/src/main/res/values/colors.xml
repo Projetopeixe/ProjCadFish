@@ -8,4 +8,5 @@
     <color name="PrimaryIntro"></color>
     <color name="PrimaryDarkIntro">#FFFFFF</color>
     <color name="AccentIntro">#ffffff</color>
+    <color name="botao_cadastro">#26742A</color>
 </resources>

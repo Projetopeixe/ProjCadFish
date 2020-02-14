@@ -30,15 +30,7 @@ public class GuiaFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_guia2, container, false);
-        btProx = view.findViewById(R.id.btProx);
 
-        btProx.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(getActivity(), TestFragment.class);
-                startActivity(i);
-            }
-        });
         return view;
     }
 
