@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -35,13 +36,12 @@ public class GuiaFragment extends Fragment {
         btProx.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Intent i = new Intent(getActivity(), TestFragment.class);
                 startActivity(i);
             }
         });
         return view;
     }
-
-
 
 }
