@@ -3,6 +3,7 @@
     <array name="preloaded_fonts" translatable="false">
         <item>@font/cherry_cream_soda</item>
         <item>@font/mr_bedfort</item>
+        <item>@font/roboto</item>
         <item>@font/secular_one</item>
     </array>
 </resources>
