@@ -11,27 +11,31 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.cadastros_usuarios.cadastro_pescador.Passo3CdPescador"
-            android:theme="@style/IntroActivity"></activity>
-        <activity android:name=".activity.cadastros_usuarios.cadastro_pescador.Passo2CadPescador"
-            android:theme="@style/IntroActivity"/>
-        <activity android:name=".activity.cadastros_usuarios.cadastro_guia.Passo3CdGuia"
-            android:theme="@style/IntroActivity"/>
-        <activity android:name=".activity.cadastros_usuarios.cadastro_guia.Passo2CdGuia"
-            android:theme="@style/IntroActivity"/>
-        <activity
-            android:name=".activity.cadastros_usuarios.cadastro_pescador.Passo1CdPescador"
-            android:theme="@style/IntroActivity" />
-        <activity
-            android:name=".activity.cadastros_usuarios.cadastro_guia.Passo1CdGuia"
-            android:theme="@style/IntroActivity" />
-        <activity android:name=".activity.ActivityInicial">
+        <activity android:name=".activity.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".activity.cadastros_usuarios.cadastro_pescador.Passo3CdPescador"
+            android:theme="@style/IntroActivity" />
+        <activity
+            android:name=".activity.cadastros_usuarios.cadastro_pescador.Passo2CadPescador"
+            android:theme="@style/IntroActivity" />
+        <activity
+            android:name=".activity.cadastros_usuarios.cadastro_guia.Passo3CdGuia"
+            android:theme="@style/IntroActivity" />
+        <activity
+            android:name=".activity.cadastros_usuarios.cadastro_guia.Passo2CdGuia"
+            android:theme="@style/IntroActivity" />
+        <activity
+            android:name=".activity.cadastros_usuarios.cadastro_pescador.Passo1CdPescador"
+            android:theme="@style/IntroActivity" />
+        <activity
+            android:name=".activity.cadastros_usuarios.cadastro_guia.Passo1CdGuia"
+            android:theme="@style/IntroActivity" />
         <activity
             android:name=".activity.LoginActivity"
             android:theme="@style/IntroActivity" />
