@@ -9,10 +9,27 @@ public class Usuario {
     private String senha;
     private int anosxp;
     private long cpf;
-    private long telfone;
+    private String telefone;
     private String estado;
     private String cidade;
     private Bitmap foto;
+    private int tipo;
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    public int getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(int tipo) {
+        this.tipo = tipo;
+    }
 
     public Bitmap getFoto() {
         return foto;
@@ -60,14 +77,6 @@ public class Usuario {
 
     public void setCpf(long cpf) {
         this.cpf = cpf;
-    }
-
-    public long getTelfone() {
-        return telfone;
-    }
-
-    public void setTelfone(long telfone) {
-        this.telfone = telfone;
     }
 
     public String getEstado() {
