@@ -4,17 +4,26 @@ import android.graphics.Bitmap;
 
 public class Usuario {
 
+    private int id;
     private String name;
     private String email;
     private String senha;
     private int anosxp;
-    private long cpf;
+    private String cpf;
     private String telefone;
     private String estado;
     private String cidade;
     private Bitmap foto;
     private int tipo;
 
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
     public String getTelefone() {
         return telefone;
     }
@@ -71,11 +80,11 @@ public class Usuario {
         this.anosxp = anosxp;
     }
 
-    public long getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(long cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 

@@ -4,12 +4,22 @@ import android.graphics.Bitmap;
 
 public class Peixe {
 
+    private int id;
     private String especie;
     private Double peso;
     private Double tamanho;
     private String marca_tag;
     private String location;
     private Bitmap fotoPeixe;
+
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getEspecie() {
         return especie;
