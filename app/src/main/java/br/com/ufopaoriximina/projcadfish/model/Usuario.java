@@ -16,7 +16,6 @@ public class Usuario {
     private Bitmap foto;
     private int tipo;
 
-
     public int getId() {
         return id;
     }
