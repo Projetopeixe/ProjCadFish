@@ -28,17 +28,17 @@ public class DataModelUsuario {
 
     //Criar dinamicamente uma Query Sql para criar
     //a tabela Info Geral
-    public String criarTabelaInfoGeral(){
+    public static  String criarTabelaInfoGeral(){
 
         queryCriarTabelaInfoGeral += "CREATE TABLE IF NOT EXISTS " + TABELA_INFO_GERAL;
         queryCriarTabelaInfoGeral += " (";
-        queryCriarTabelaInfoGeral += id + " INT PRIMARY KEY, ";
-        queryCriarTabelaInfoGeral += nome + " TEXT, ";
-        queryCriarTabelaInfoGeral += anosxp + " INT, ";
-        queryCriarTabelaInfoGeral += cpf + " TEXT, ";
-        queryCriarTabelaInfoGeral += telefone + " TEXT, ";
-        queryCriarTabelaInfoGeral += cidade + " TEXT, ";
-        queryCriarTabelaInfoGeral += estado + " TEXT";
+        queryCriarTabelaInfoGeral += id + " INT PRIMARY KEY NOT NULL AUTOINCREMENT, ";
+        queryCriarTabelaInfoGeral += nome + " TEXT NOT NULL, ";
+        queryCriarTabelaInfoGeral += anosxp + " INT NOT NULL, ";
+        queryCriarTabelaInfoGeral += cpf + " TEXT NOT NULL, ";
+        queryCriarTabelaInfoGeral += telefone + " TEXT NOT NULL, ";
+        queryCriarTabelaInfoGeral += cidade + " TEXT NOT NULL, ";
+        queryCriarTabelaInfoGeral += estado + " TEXT NOT NULL";
         queryCriarTabelaInfoGeral += " )";
         return  queryCriarTabelaInfoGeral;
     }
@@ -47,14 +47,15 @@ public class DataModelUsuario {
     //Criar dinamicamente uma Query Sql para criar
     //a tabela Perfil
 
-    public String criarTabelaPerfil(){
+    public static String criarTabelaPerfil(){
         queryCriarTabelaPerfil += "CREATE TABLE IF NOT EXISTS " + TABELA_PERFIL;
         queryCriarTabelaPerfil += " (";
-        queryCriarTabelaPerfil += id + " INT PRIMARY KEY NOT NULL, ";
+        queryCriarTabelaPerfil += id + " INT PRIMARY KEY NOT NULL AUTOINCREMENT, ";
         queryCriarTabelaPerfil += email + " TEXT NOT NULL, ";
         queryCriarTabelaPerfil += senha + " TEXT NOT NULL, ";
         queryCriarTabelaPerfil += foto + " BLOB NOT NULL, ";
-        queryCriarTabelaPerfil += tipo + " INT NOT NULL";
+        queryCriarTabelaPerfil += tipo + " INT NOT NULL, ";
+        queryCriarTabelaPerfil += "FOREIGN KEY (info_geral_cadastros_id) REFERENCES info_geral_cadastros(id)";
         queryCriarTabelaPerfil += " )";
         return queryCriarTabelaPerfil;
     }

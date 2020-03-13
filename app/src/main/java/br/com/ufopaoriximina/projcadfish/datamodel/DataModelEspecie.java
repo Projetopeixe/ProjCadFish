@@ -13,10 +13,10 @@ public class DataModelEspecie {
     private static String queryCriarTabelaEspecie = "";
 
 
-    public String criarTabelaEspecie(){
+    public static String criarTabelaEspecie(){
         queryCriarTabelaEspecie += " CREATE TABLE IF NOT EXISTS " + TABELA_ESPECIE;
         queryCriarTabelaEspecie += " (";
-        queryCriarTabelaEspecie += id + " INT PRIMARY KEY NOT NULL, ";
+        queryCriarTabelaEspecie += id + " INT PRIMARY KEY NOT NULL AUTOINCREMENT, ";
         queryCriarTabelaEspecie += nome + " TEXT NOT NULL, ";
         queryCriarTabelaEspecie += foto + " BLOB NOT NULL";
         queryCriarTabelaEspecie += " )";
