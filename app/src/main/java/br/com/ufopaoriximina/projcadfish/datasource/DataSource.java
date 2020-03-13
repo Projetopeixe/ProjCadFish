@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import androidx.annotation.Nullable;
 
 import br.com.ufopaoriximina.projcadfish.datamodel.DataModelEspecie;
+import br.com.ufopaoriximina.projcadfish.datamodel.DataModelGrupo;
 import br.com.ufopaoriximina.projcadfish.datamodel.DataModelPeixe;
 import br.com.ufopaoriximina.projcadfish.datamodel.DataModelUsuario;
 
@@ -29,6 +30,8 @@ public class DataSource extends SQLiteOpenHelper {
             db.execSQL(DataModelUsuario.criarTabelaPerfil());
             db.execSQL(DataModelPeixe.criarTabelaPeixe());
             db.execSQL(DataModelEspecie.criarTabelaEspecie());
+            db.execSQL(DataModelGrupo.criarTabelaGrupo());
+
         }catch ( Exception e ){
 
         }
