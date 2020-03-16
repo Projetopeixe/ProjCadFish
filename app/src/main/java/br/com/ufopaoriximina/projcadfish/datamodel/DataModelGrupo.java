@@ -11,14 +11,12 @@ public class DataModelGrupo {
     private static String queryCriarTabelaGrupo = "";
 
     public static String criarTabelaGrupo(){
-
         queryCriarTabelaGrupo += " CREATE TABLE IF NOT EXISTS " + TABELA_GRUPO;
         queryCriarTabelaGrupo += " (";
-        queryCriarTabelaGrupo += id + " INT NOT NULL PRIMARY KEY AUTOINCREMENT, ";
+        queryCriarTabelaGrupo += id + " INT NOT NULL PRIMARY KEY AUTO_INCREMENT, ";
         queryCriarTabelaGrupo += nome + " TEXT NOT NULL, ";
         queryCriarTabelaGrupo += foto + " BLOB NOT NULL ";
         queryCriarTabelaGrupo += ")";
-
         return queryCriarTabelaGrupo;
     }
 }

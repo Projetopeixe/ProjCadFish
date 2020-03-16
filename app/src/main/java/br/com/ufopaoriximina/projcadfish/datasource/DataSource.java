@@ -3,6 +3,7 @@ package br.com.ufopaoriximina.projcadfish.datasource;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 
@@ -31,9 +32,9 @@ public class DataSource extends SQLiteOpenHelper {
             db.execSQL(DataModelPeixe.criarTabelaPeixe());
             db.execSQL(DataModelEspecie.criarTabelaEspecie());
             db.execSQL(DataModelGrupo.criarTabelaGrupo());
-
+            Log.i("BD", "Sucesso ao criar BD");
         }catch ( Exception e ){
-
+            Log.e("BD", "DB--> ERRO: " + e.getMessage());
         }
     }
 
