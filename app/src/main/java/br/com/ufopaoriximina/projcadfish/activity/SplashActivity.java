@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import br.com.ufopaoriximina.projcadfish.R;
 import br.com.ufopaoriximina.projcadfish.config.AplicationConrtoller;
+import br.com.ufopaoriximina.projcadfish.datasource.DataSource;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -29,7 +30,7 @@ public class SplashActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-
+                DataSource ds = new DataSource(getBaseContext());
                 abriTelaInicialLogin();
             }
         }, 3000);
