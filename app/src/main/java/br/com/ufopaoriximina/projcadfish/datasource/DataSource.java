@@ -10,12 +10,13 @@ import androidx.annotation.Nullable;
 
 import br.com.ufopaoriximina.projcadfish.datamodel.DataModelEspecie;
 import br.com.ufopaoriximina.projcadfish.datamodel.DataModelGrupo;
+import br.com.ufopaoriximina.projcadfish.datamodel.DataModelGrupoPerfil;
 import br.com.ufopaoriximina.projcadfish.datamodel.DataModelPeixe;
 import br.com.ufopaoriximina.projcadfish.datamodel.DataModelUsuario;
 
 public class DataSource extends SQLiteOpenHelper {
 
-    private static final String DB_NAME = "projeto_peixe.sqlite";
+    private static final String DB_NAME = "projeto_peixe.db";
     private static final int DB_VERSION = 1;
 
     SQLiteDatabase db;
@@ -26,15 +27,21 @@ public class DataSource extends SQLiteOpenHelper {
     }
 
     private String infoGeral = DataModelUsuario.criarTabelaInfoGeral();
+    private String perfil = DataModelUsuario.criarTabelaPerfil();
+    private String peixe = DataModelPeixe.criarTabelaPeixe();
+    private String especie = DataModelEspecie.criarTabelaEspecie();
+    private String grupo = DataModelGrupo.criarTabelaGrupo();
+    private String grupo_perfil = DataModelGrupoPerfil.criarTabelaGrupoPerfil();
 
     @Override
     public void onCreate(SQLiteDatabase db) {
         try {
             db.execSQL(infoGeral);
-            db.execSQL(DataModelUsuario.criarTabelaPerfil());
-            db.execSQL(DataModelPeixe.criarTabelaPeixe());
-            db.execSQL(DataModelEspecie.criarTabelaEspecie());
-            db.execSQL(DataModelGrupo.criarTabelaGrupo());
+            db.execSQL(perfil);
+            db.execSQL(peixe);
+            db.execSQL(especie);
+            db.execSQL(grupo);
+            db.execSQL(grupo_perfil);
             Log.d("BD", "Sucesso ao criar BD");
         }catch ( Exception e ){
             Log.e("BD", "DB--> ERRO: " + e.getMessage());

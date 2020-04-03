@@ -20,7 +20,7 @@ public class DataModelPeixe {
     public static String criarTabelaPeixe(){
         queryCriarTabelaPeixes += " CREATE TABLE IF NOT EXISTS " + TABELA_PEIXES;
         queryCriarTabelaPeixes += " (";
-        queryCriarTabelaPeixes += id + " INT NOT NULL PRIMARY KEY AUTO_INCREMENT, ";
+        queryCriarTabelaPeixes += id + " INT NOT NULL PRIMARY KEY AUTOINCREMENT, ";
         queryCriarTabelaPeixes += especie + " TEXT NOT NULL, ";
         queryCriarTabelaPeixes += peso + " REAL NOT NULL, ";
         queryCriarTabelaPeixes += tamanho + " REAL NOT NULL, ";

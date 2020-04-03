@@ -13,7 +13,7 @@ public class DataModelGrupoPerfil {
 
         queryCriarTabelaGrupoPerfil += "CREATE TABLE IF NOT EXISTS " + TABELA_GRUPO_PERFIL;
         queryCriarTabelaGrupoPerfil += " (";
-        queryCriarTabelaGrupoPerfil += id + " INT NOT NULL PRIMARY KEY  AUTO_INCREMENT, ";
+        queryCriarTabelaGrupoPerfil += id + " INT NOT NULL PRIMARY KEY AUTOINCREMENT, ";
         queryCriarTabelaGrupoPerfil += data_criacao + " TEXT NOT NULL, ";
         queryCriarTabelaGrupoPerfil += " FOREIGN KEY (info_geral_cadastro_id) REFERENCES info_geral_cadastros(id),";
         queryCriarTabelaGrupoPerfil += " FOREIGN KEY (perfil_id) REFERENCES perfil(id), ";

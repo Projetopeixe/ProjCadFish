@@ -16,7 +16,7 @@ public class DataModelEspecie {
     public static String criarTabelaEspecie(){
         queryCriarTabelaEspecie += " CREATE TABLE IF NOT EXISTS " + TABELA_ESPECIE;
         queryCriarTabelaEspecie += " (";
-        queryCriarTabelaEspecie += id + " INT NOT NULL PRIMARY KEY  AUTO_INCREMENT, ";
+        queryCriarTabelaEspecie += id + " INT NOT NULL PRIMARY KEY  AUTOINCREMENT, ";
         queryCriarTabelaEspecie += nome + " TEXT NOT NULL, ";
         queryCriarTabelaEspecie += foto + " BLOB NOT NULL";
         queryCriarTabelaEspecie += " )";
