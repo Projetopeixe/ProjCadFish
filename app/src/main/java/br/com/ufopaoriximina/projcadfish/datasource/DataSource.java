@@ -4,6 +4,7 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
@@ -24,15 +25,17 @@ public class DataSource extends SQLiteOpenHelper {
         db = getWritableDatabase();
     }
 
+    private String infoGeral = DataModelUsuario.criarTabelaInfoGeral();
+
     @Override
     public void onCreate(SQLiteDatabase db) {
         try {
-            db.execSQL(DataModelUsuario.criarTabelaInfoGeral());
+            db.execSQL(infoGeral);
             db.execSQL(DataModelUsuario.criarTabelaPerfil());
             db.execSQL(DataModelPeixe.criarTabelaPeixe());
             db.execSQL(DataModelEspecie.criarTabelaEspecie());
             db.execSQL(DataModelGrupo.criarTabelaGrupo());
-            Log.i("BD", "Sucesso ao criar BD");
+            Log.d("BD", "Sucesso ao criar BD");
         }catch ( Exception e ){
             Log.e("BD", "DB--> ERRO: " + e.getMessage());
         }

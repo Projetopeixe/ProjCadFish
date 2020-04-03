@@ -32,7 +32,7 @@ public class DataModelUsuario {
 
         queryCriarTabelaInfoGeral += "CREATE TABLE IF NOT EXISTS " + TABELA_INFO_GERAL;
         queryCriarTabelaInfoGeral += " (";
-        queryCriarTabelaInfoGeral += id + " INT PRIMARY KEY NOT NULL AUTO_INCREMENT, ";
+        queryCriarTabelaInfoGeral += id + " INT NOT NULL PRIMARY KEY AUTO_INCREMENT, ";
         queryCriarTabelaInfoGeral += nome + " TEXT NOT NULL, ";
         queryCriarTabelaInfoGeral += anosxp + " INT NOT NULL, ";
         queryCriarTabelaInfoGeral += cpf + " TEXT NOT NULL, ";
@@ -50,7 +50,7 @@ public class DataModelUsuario {
     public static String criarTabelaPerfil(){
         queryCriarTabelaPerfil += "CREATE TABLE IF NOT EXISTS " + TABELA_PERFIL;
         queryCriarTabelaPerfil += " (";
-        queryCriarTabelaPerfil += id + " INT PRIMARY KEY NOT NULL AUTO_INCREMENT, ";
+        queryCriarTabelaPerfil += id + " INT NOT NULL PRIMARY KEY AUTO_INCREMENT, ";
         queryCriarTabelaPerfil += email + " TEXT NOT NULL, ";
         queryCriarTabelaPerfil += senha + " TEXT NOT NULL, ";
         queryCriarTabelaPerfil += foto + " BLOB NOT NULL, ";

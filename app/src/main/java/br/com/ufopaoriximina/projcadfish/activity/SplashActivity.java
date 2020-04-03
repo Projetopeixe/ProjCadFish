@@ -3,6 +3,7 @@ package br.com.ufopaoriximina.projcadfish.activity;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.os.Handler;
 import android.widget.Toast;
@@ -12,7 +13,6 @@ import br.com.ufopaoriximina.projcadfish.config.AplicationController;
 import br.com.ufopaoriximina.projcadfish.datasource.DataSource;
 
 public class SplashActivity extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,8 +29,9 @@ public class SplashActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                DataSource ds = new DataSource(getBaseContext());
+                DataSource ds = new DataSource(getApplicationContext());
                 abriTelaInicialLogin();
+
             }
         }, 3000);
     }
