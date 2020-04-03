@@ -5,7 +5,7 @@ import android.app.Activity;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
 
-public class AplicationConrtoller {
+public class AplicationController {
 
     public static boolean verificarGooglePlayService(
             Activity activity
