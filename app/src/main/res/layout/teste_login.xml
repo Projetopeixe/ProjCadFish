@@ -6,19 +6,6 @@
     android:background="@drawable/tela_login"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-black"
-        android:text="CADASTRE-SE"
-        android:textAlignment="center"
-        android:textColor="#F8242222"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="33dp" />
-
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/edit_text_email"
         android:layout_width="318dp"
@@ -26,10 +13,12 @@
         android:background="@drawable/edit_text"
         android:hint="Digite seu email"
         android:imeOptions="actionDone"
+        android:padding="19dp"
         android:textColor="@android:color/white"
-        android:textColorHint="@android:color/white"
-        tools:layout_editor_absoluteX="56dp"
-        tools:layout_editor_absoluteY="330dp" />
+        android:textColorHint="#F0EAEA"
+        android:textSize="19sp"
+        tools:layout_editor_absoluteX="59dp"
+        tools:layout_editor_absoluteY="273dp" />
 
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/edit_text_senha"
@@ -38,21 +27,23 @@
         android:background="@drawable/edit_text"
         android:hint="Digite sua senha"
         android:imeOptions="actionDone"
+        android:padding="19dp"
         android:textColor="@android:color/white"
         android:textColorHint="@android:color/white"
+        android:textSize="19sp"
         tools:layout_editor_absoluteX="56dp"
-        tools:layout_editor_absoluteY="409dp" />
+        tools:layout_editor_absoluteY="357dp" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_logar"
-        android:layout_width="363dp"
-        android:layout_height="58dp"
+        android:layout_width="321dp"
+        android:layout_height="57dp"
         android:background="@drawable/edit_run"
         android:text="LOGAR"
         android:textAllCaps="false"
         android:textColor="@android:color/white"
-        tools:layout_editor_absoluteX="32dp"
-        tools:layout_editor_absoluteY="519dp" />
+        tools:layout_editor_absoluteX="59dp"
+        tools:layout_editor_absoluteY="442dp" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/txt_ainda_nao_e_cadastrado"
@@ -62,8 +53,8 @@
         android:textAlignment="center"
         android:textColor="@android:color/white"
         android:textSize="18dp"
-        tools:layout_editor_absoluteX="76dp"
-        tools:layout_editor_absoluteY="619dp" />
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="521dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
