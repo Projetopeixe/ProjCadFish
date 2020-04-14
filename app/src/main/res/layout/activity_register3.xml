@@ -21,67 +21,84 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="357dp"
             android:layout_height="559dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:orientation="vertical"
-                tools:layout_editor_absoluteX="51dp"
-                tools:layout_editor_absoluteY="0dp">
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:layout_editor_absoluteX="0dp">
 
                 <EditText
                     android:id="@+id/experiencia"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
                     android:drawablePadding="10dp"
                     android:hint="INSIRA SEU ESTADO"
                     android:inputType="textPassword"
                     android:padding="20dp"
                     android:textColorHint="#606060"
                     android:textSize="14sp"
-                    tools:layout_editor_absoluteX="2dp"
-                    tools:layout_editor_absoluteY="190dp" />
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/nome" />
 
                 <EditText
                     android:id="@+id/nome"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="96dp"
                     android:drawablePadding="10dp"
                     android:hint="INSIRA SUA CIDADE"
                     android:inputType="text"
                     android:padding="20dp"
                     android:textColorHint="#606060"
                     android:textSize="14sp"
-                    tools:layout_editor_absoluteX="4dp"
-                    tools:layout_editor_absoluteY="77dp" />
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageButton
                     android:id="@+id/signin"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_gravity="end"
+                    android:layout_marginTop="104dp"
                     android:background="@drawable/button_back_register"
                     android:src="@drawable/ic_stat_name"
-                    tools:layout_editor_absoluteX="293dp"
-                    tools:layout_editor_absoluteY="317dp" />
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.947"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/experiencia" />
 
                 <Button
                     android:id="@+id/signup"
                     android:layout_width="327dp"
                     android:layout_height="47dp"
                     android:layout_gravity="center"
+                    android:layout_marginStart="14dp"
+                    android:layout_marginTop="88dp"
+                    android:layout_marginEnd="15dp"
                     android:background="@drawable/button_back_register"
                     android:text="FINALIZAR"
                     android:textColor="@android:color/white"
-                    tools:layout_editor_absoluteX="17dp"
-                    tools:layout_editor_absoluteY="469dp" />
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/signin"
+                    app:layout_constraintVertical_bias="0.051" />
             </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-        </>
 
-    </>
-</LinearLayout>
-    </RelativeLayout>
+</RelativeLayout>

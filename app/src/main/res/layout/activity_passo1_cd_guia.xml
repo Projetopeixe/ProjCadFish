@@ -102,7 +102,7 @@
         android:id="@+id/proximo_passo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/botao_cadastro"
+        android:backgroundTint="@color/colorPrimaryDark"
         android:text="Próximo passo"
         android:textColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="@+id/button2"

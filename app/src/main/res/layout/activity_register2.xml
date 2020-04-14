@@ -21,7 +21,11 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="357dp"
             android:layout_height="559dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -35,37 +39,43 @@
                     android:id="@+id/experiencia"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
                     android:drawablePadding="10dp"
                     android:hint="INSIRA SEU TELEFONE"
                     android:inputType="textPassword"
                     android:padding="20dp"
                     android:textColorHint="#606060"
                     android:textSize="14sp"
-                    tools:layout_editor_absoluteX="2dp"
-                    tools:layout_editor_absoluteY="190dp" />
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/nome" />
 
                 <EditText
                     android:id="@+id/nome"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="100dp"
                     android:drawablePadding="10dp"
                     android:hint="INSIRA SEU CPF"
                     android:inputType="text"
                     android:padding="20dp"
                     android:textColorHint="#606060"
                     android:textSize="14sp"
-                    tools:layout_editor_absoluteX="4dp"
-                    tools:layout_editor_absoluteY="77dp" />
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageButton
                     android:id="@+id/signin"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_gravity="end"
+                    android:layout_marginTop="76dp"
                     android:background="@drawable/button_back_register"
                     android:src="@drawable/ic_arrow_forward_black_24dp"
-                    tools:layout_editor_absoluteX="293dp"
-                    tools:layout_editor_absoluteY="317dp" />
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/experiencia" />
 
                 <Button
                     android:id="@+id/signup"
@@ -75,13 +85,15 @@
                     android:background="@drawable/button_back_register"
                     android:text="AVANÇAR"
                     android:textColor="@android:color/white"
-                    tools:layout_editor_absoluteX="17dp"
-                    tools:layout_editor_absoluteY="469dp" />
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/signin"
+                    app:layout_constraintVertical_bias="0.648" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-        </>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </>
-</LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
     </RelativeLayout>
