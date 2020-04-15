@@ -1,0 +1,84 @@
+--
+-- File generated with SQLiteStudio v3.2.1 on ter abr 14 21:00:45 2020
+--
+-- Text encoding used: System
+--
+PRAGMA foreign_keys = off;
+BEGIN TRANSACTION;
+
+-- Table: especies
+CREATE TABLE especies (
+    id   INTEGER PRIMARY KEY ASC AUTOINCREMENT
+                 NOT NULL,
+    nome VARCHAR NOT NULL,
+    foto BLOB    NOT NULL
+);
+
+
+-- Table: grupo
+CREATE TABLE grupo (
+    id             INTEGER         PRIMARY KEY ASC AUTOINCREMENT
+                                   NOT NULL,
+    nome           VARCHAR (3, 45) NOT NULL,
+    data_expedicao DATETIME        NOT NULL
+);
+
+
+-- Table: grupo_perfil
+CREATE TABLE grupo_perfil (
+    id            INTEGER  PRIMARY KEY ASC AUTOINCREMENT
+                           NOT NULL,
+    data_criacao  DATETIME NOT NULL,
+    peixes_id     INTEGER  REFERENCES peixes (id) 
+                           NOT NULL,
+    perfil_id     INTEGER  REFERENCES perfil (id) 
+                           NOT NULL,
+    grupo_id      INTEGER  REFERENCES grupo (id) 
+                           NOT NULL,
+    info_geral_id INTEGER  REFERENCES info_geral_cadastros (id) 
+                           NOT NULL
+);
+
+
+-- Table: info_geral_cadastros
+CREATE TABLE info_geral_cadastros (
+    id       INTEGER          PRIMARY KEY ASC AUTOINCREMENT
+                              NOT NULL,
+    nome     VARCHAR (3, 45)  NOT NULL,
+    anos_exp INT              NOT NULL,
+    cpf      VARCHAR (11, 11) NOT NULL,
+    telefone VARCHAR          NOT NULL,
+    cidade   VARCHAR          NOT NULL,
+    estado   VARCHAR          NOT NULL
+);
+
+
+-- Table: peixes
+CREATE TABLE peixes (
+    id          INTEGER          NOT NULL
+                                 PRIMARY KEY ASC AUTOINCREMENT,
+    especie     VARCHAR (0, 60)  NOT NULL,
+    tamanho     DOUBLE           NOT NULL,
+    peso        DOUBLE           NOT NULL,
+    localizacao VARCHAR (0, 255) NOT NULL,
+    foto        BLOB             NOT NULL,
+    especies_id INTEGER          REFERENCES especies (id) 
+                                 NOT NULL
+);
+
+
+-- Table: perfil
+CREATE TABLE perfil (
+    id            INTEGER         PRIMARY KEY ASC AUTOINCREMENT
+                                  NOT NULL,
+    email         VARCHAR         NOT NULL,
+    senha         VARCHAR (8, 45) NOT NULL,
+    foto          BLOB            NOT NULL,
+    info_geral_id                 REFERENCES info_geral_cadastros (id) 
+                                  NOT NULL,
+    tipo          INTEGER         NOT NULL
+);
+
+
+COMMIT TRANSACTION;
+PRAGMA foreign_keys = on;
