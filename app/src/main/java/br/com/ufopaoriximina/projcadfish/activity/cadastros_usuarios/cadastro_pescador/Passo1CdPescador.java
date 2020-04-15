@@ -11,6 +11,6 @@ public class Passo1CdPescador extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_passo1_cd_pescador);
+        setContentView(R.layout.activity_register1);
     }
 }

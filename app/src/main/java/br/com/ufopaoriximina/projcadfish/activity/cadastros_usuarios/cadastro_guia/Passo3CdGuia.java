@@ -11,6 +11,6 @@ public class Passo3CdGuia extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_passo3_cd_guia);
+        setContentView(R.layout.activity_register3);
     }
 }

@@ -11,6 +11,6 @@ public class Passo2CdGuia extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_passo2_cd_guia);
+        setContentView(R.layout.activity_register2);
     }
 }
