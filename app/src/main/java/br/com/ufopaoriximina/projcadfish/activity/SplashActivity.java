@@ -2,23 +2,14 @@ package br.com.ufopaoriximina.projcadfish.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.os.Handler;
 import android.widget.Toast;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-
 import br.com.ufopaoriximina.projcadfish.R;
 import br.com.ufopaoriximina.projcadfish.config.AplicationController;
-import br.com.ufopaoriximina.projcadfish.datasource.DataSource;
+import br.com.ufopaoriximina.projcadfish.dao.DataSource;
 
 public class SplashActivity extends AppCompatActivity {
 
