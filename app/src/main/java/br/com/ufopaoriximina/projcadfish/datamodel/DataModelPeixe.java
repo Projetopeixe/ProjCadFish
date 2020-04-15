@@ -27,7 +27,7 @@ public class DataModelPeixe {
         queryCriarTabelaPeixes += marca_tag + " TEXT NOT NULL, ";
         queryCriarTabelaPeixes += location + " TEXT NOT NULL, ";
         queryCriarTabelaPeixes += fotoPeixe + " BLOB NOT NULL, ";
-        queryCriarTabelaPeixes += " FOREIGN KEY (especies_id) REFERENCES especies(id)";
+        queryCriarTabelaPeixes += " especies_id INTEGER NOT NULL REFERENCES especies(id)";
         queryCriarTabelaPeixes += " )";
         return queryCriarTabelaPeixes;
     }

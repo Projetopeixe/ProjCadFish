@@ -15,10 +15,10 @@ public class DataModelGrupoPerfil {
         queryCriarTabelaGrupoPerfil += " (";
         queryCriarTabelaGrupoPerfil += id + " INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, ";
         queryCriarTabelaGrupoPerfil += data_criacao + " TEXT NOT NULL, ";
-        queryCriarTabelaGrupoPerfil += " FOREIGN KEY (info_geral_cadastros_id) REFERENCES info_geral_cadastros(id),";
-        queryCriarTabelaGrupoPerfil += " FOREIGN KEY (perfil_id) REFERENCES perfil(id), ";
-        queryCriarTabelaGrupoPerfil += "FOREIGN KEY (grupo_id) REFERENCES grupo(id), ";
-        queryCriarTabelaGrupoPerfil += "FOREIGN KEY (peixes_id) REFERENCES peixes(id)";
+        queryCriarTabelaGrupoPerfil += " info_geral_cadastros_id INTEGER NOT NULL REFERENCES info_geral_cadastros(id),";
+        queryCriarTabelaGrupoPerfil += " perfil_id INTEGER NOT NULL REFERENCES perfil(id), ";
+        queryCriarTabelaGrupoPerfil += "grupo_id INTEGER NOT NULL REFERENCES grupo(id), ";
+        queryCriarTabelaGrupoPerfil += "peixes_id INTEGER NOT NULL REFERENCES peixes(id)";
         queryCriarTabelaGrupoPerfil += ")";
         return queryCriarTabelaGrupoPerfil;
     }

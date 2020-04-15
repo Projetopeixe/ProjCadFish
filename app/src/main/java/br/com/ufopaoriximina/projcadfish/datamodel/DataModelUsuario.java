@@ -55,7 +55,7 @@ public class DataModelUsuario {
         queryCriarTabelaPerfil += senha + " TEXT NOT NULL, ";
         queryCriarTabelaPerfil += foto + " BLOB NOT NULL, ";
         queryCriarTabelaPerfil += tipo + " INT NOT NULL, ";
-        queryCriarTabelaPerfil += "FOREIGN KEY (info_geral_cadastros_id) REFERENCES info_geral_cadastros(id)";
+        queryCriarTabelaPerfil += "info_geral_cadastros_id INTEGER NOT NULL REFERENCES info_geral_cadastros(id)";
         queryCriarTabelaPerfil += " )";
         return queryCriarTabelaPerfil;
     }
