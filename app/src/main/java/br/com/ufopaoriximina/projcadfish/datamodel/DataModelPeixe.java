@@ -36,34 +36,34 @@ public class DataModelPeixe {
         return TABELA_PEIXES;
     }
 
-    public String getId() {
+    public static String getId() {
         return id;
     }
 
-    public String getEspecie() {
+    public static String getEspecie() {
         return especie;
     }
 
 
-    public String getPeso() {
+    public static String getPeso() {
         return peso;
     }
 
-    public String getTamanho() {
+    public static String getTamanho() {
         return tamanho;
     }
 
-    public String getMarca_tag() {
+    public static String getMarca_tag() {
         return marca_tag;
     }
 
 
-    public String getLocation() {
+    public static String getLocation() {
         return location;
     }
 
 
-    public String getFotoPeixe() {
+    public static String getFotoPeixe() {
         return fotoPeixe;
     }
 
