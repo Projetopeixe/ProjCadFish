@@ -1,5 +1,6 @@
 package br.com.ufopaoriximina.projcadfish.dao;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -52,4 +53,15 @@ public class DataSource extends SQLiteOpenHelper {
 
     }
 
+    public boolean insert(String table, ContentValues dados){
+
+        boolean sucesso = true;
+
+        try {
+            sucesso = db.insert(table, null, dados) > 0;
+        }catch (Exception e){
+
+        }
+        return sucesso;
+    }
 }
