@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,14 +9,22 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"
+        android:layout_height="0dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="32dp"
         android:background="@drawable/layout_resgiter"
         android:gravity="center"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="357dp"
@@ -28,17 +36,39 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:orientation="vertical"
-                tools:layout_editor_absoluteX="107dp"
-                tools:layout_editor_absoluteY="16dp">
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0">
+
+                <EditText
+                    android:id="@+id/nome"
+                    android:layout_width="312dp"
+                    android:layout_height="58dp"
+                    android:layout_marginTop="68dp"
+                    android:drawablePadding="10dp"
+                    android:hint="INSIRA SEU NOME"
+                    android:inputType="text"
+                    android:padding="20dp"
+                    android:textColorHint="#606060"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.466"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <EditText
                     android:id="@+id/experiencia"
                     android:layout_width="317dp"
                     android:layout_height="59dp"
+                    android:layout_marginTop="32dp"
                     android:drawablePadding="10dp"
                     android:hint="ANOS DE EXPERIÊNCIA"
                     android:inputType="textPassword"
@@ -47,24 +77,8 @@
                     android:textSize="14sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    tools:ignore="MissingConstraints"
-                    tools:layout_editor_absoluteY="180dp" />
-
-                <EditText
-                    android:id="@+id/nome"
-                    android:layout_width="312dp"
-                    android:layout_height="58dp"
-                    android:drawablePadding="10dp"
-                    android:hint="INSIRA SEU NOME"
-                    android:inputType="text"
-                    android:padding="20dp"
-                    android:textColorHint="#606060"
-                    android:textSize="14sp"
-                    app:layout_constraintBottom_toTopOf="@+id/experiencia"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.68" />
+                    app:layout_constraintTop_toBottomOf="@+id/nome"
+                    tools:ignore="MissingConstraints" />
 
                 <ImageButton
                     android:id="@+id/signin"
@@ -75,17 +89,19 @@
                     android:src="@drawable/ic_arrow_forward_black_24dp"
                     app:layout_constraintBottom_toTopOf="@+id/signup"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.957"
+                    app:layout_constraintHorizontal_bias="0.947"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/experiencia" />
+                    app:layout_constraintTop_toBottomOf="@+id/experiencia"
+                    app:layout_constraintVertical_bias="0.532" />
 
                 <Button
                     android:id="@+id/signup"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginStart="13dp"
-                    android:layout_marginEnd="13dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="28dp"
                     android:background="@drawable/button_back_register"
                     android:text="AVANÇAR"
                     android:textColor="@android:color/white"
@@ -93,10 +109,11 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/signin" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.983" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
