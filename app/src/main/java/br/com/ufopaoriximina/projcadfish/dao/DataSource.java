@@ -64,4 +64,6 @@ public class DataSource extends SQLiteOpenHelper {
         }
         return sucesso;
     }
+
+    //public boolean alterar(String tabela, ContentValues )
 }

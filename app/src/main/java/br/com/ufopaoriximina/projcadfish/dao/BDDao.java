@@ -115,7 +115,6 @@ public class BDDao extends DataSource{
         boolean sucesso = true;
 
         dados = new ContentValues();
-
         dados.put(DataModelEspecie.getNome(), especie.getNome());
         dados.put(DataModelEspecie.getFoto(), convertCircleBitmapToByteArray(especie.getFoto()));
 
