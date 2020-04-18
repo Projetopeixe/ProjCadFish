@@ -4,6 +4,8 @@ package br.com.ufopaoriximina.projcadfish.Fragement;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.core.app.ActivityCompat;
+import androidx.core.app.ActivityOptionsCompat;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -12,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import br.com.ufopaoriximina.projcadfish.R;
+import br.com.ufopaoriximina.projcadfish.activity.LoginActivity;
 import br.com.ufopaoriximina.projcadfish.activity.cadastros_usuarios.cadastro_guia.Passo1CdGuia;
 
 /**
@@ -37,7 +40,9 @@ public class GuiaFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getActivity(), Passo1CdGuia.class);
-                startActivity(i);
+                ActivityOptionsCompat activityOptionsCompat = ActivityOptionsCompat.makeCustomAnimation(getContext()
+                        , R.transition.fade_in, R.transition.fade_out);
+                ActivityCompat.startActivity(getContext(), i, activityOptionsCompat.toBundle());
 
             }
         });

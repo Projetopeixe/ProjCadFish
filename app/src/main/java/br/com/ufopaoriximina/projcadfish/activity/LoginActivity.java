@@ -1,6 +1,8 @@
 package br.com.ufopaoriximina.projcadfish.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.app.ActivityOptionsCompat;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,7 +22,10 @@ public class LoginActivity extends AppCompatActivity  {
 
     public void abrirCadastro(View view){
         Intent i = new Intent(LoginActivity.this, UserCadastroActivity.class);
-        startActivity(i);
+        ActivityOptionsCompat activityOptionsCompat = ActivityOptionsCompat.makeCustomAnimation(getApplicationContext()
+                , R.transition.fade_in, R.transition.fade_out);
+        ActivityCompat.startActivity(LoginActivity.this, i, activityOptionsCompat.toBundle());
+        // startActivity(i);
         //finish();
     }
 }

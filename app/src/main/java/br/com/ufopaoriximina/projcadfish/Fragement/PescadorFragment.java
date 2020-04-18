@@ -4,6 +4,8 @@ package br.com.ufopaoriximina.projcadfish.Fragement;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.core.app.ActivityCompat;
+import androidx.core.app.ActivityOptionsCompat;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -37,7 +39,10 @@ public class PescadorFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getActivity(), Passo1CdPescador.class);
-                startActivity(i);
+
+                ActivityOptionsCompat activityOptionsCompat = ActivityOptionsCompat.makeCustomAnimation(getContext()
+                        , R.transition.fade_in, R.transition.fade_out);
+                ActivityCompat.startActivity(getContext(), i, activityOptionsCompat.toBundle());
 
             }
         });
