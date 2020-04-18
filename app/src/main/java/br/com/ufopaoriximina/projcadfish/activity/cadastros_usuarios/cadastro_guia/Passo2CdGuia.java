@@ -1,6 +1,8 @@
 package br.com.ufopaoriximina.projcadfish.activity.cadastros_usuarios.cadastro_guia;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.app.ActivityOptionsCompat;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -72,7 +74,9 @@ public class Passo2CdGuia extends AppCompatActivity {
                         Intent i = new Intent(getApplicationContext(), Passo3CdGuia.class);
                         i.putExtra(DataModelUsuario.getCpf(), numCpf);
                         i.putExtra(DataModelUsuario.getTelefone(), numTel);
-                        startActivity(i);
+                        ActivityOptionsCompat activityOptionsCompat = ActivityOptionsCompat.makeCustomAnimation(getApplicationContext()
+                                , R.transition.fade_in, R.transition.fade_out);
+                        ActivityCompat.startActivity(Passo2CdGuia.this, i, activityOptionsCompat.toBundle());
                         finish();
                     }else{
                         Toast.makeText(getApplicationContext(), "Número de Telefone Inválido!", Toast.LENGTH_SHORT).show();

@@ -44,6 +44,7 @@ public class GuiaFragment extends Fragment {
                         , R.transition.fade_in, R.transition.fade_out);
                 ActivityCompat.startActivity(getContext(), i, activityOptionsCompat.toBundle());
 
+
             }
         });
 

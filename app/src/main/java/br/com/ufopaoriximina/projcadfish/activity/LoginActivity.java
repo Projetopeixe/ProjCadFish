@@ -28,8 +28,7 @@ public class LoginActivity extends AppCompatActivity  {
         ActivityOptionsCompat activityOptionsCompat = ActivityOptionsCompat.makeCustomAnimation(getApplicationContext()
                 , R.transition.fade_in, R.transition.fade_out);
         ActivityCompat.startActivity(LoginActivity.this, i, activityOptionsCompat.toBundle());
-        // startActivity(i);
-        //finish();
+
     }
 
     // Código botão Voltar

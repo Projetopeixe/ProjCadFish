@@ -1,6 +1,8 @@
 package br.com.ufopaoriximina.projcadfish.activity.cadastros_usuarios.cadastro_guia;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.app.ActivityOptionsCompat;
 
 import android.content.Intent;
 import android.icu.text.UnicodeSetSpanner;
@@ -12,6 +14,8 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import br.com.ufopaoriximina.projcadfish.R;
+import br.com.ufopaoriximina.projcadfish.activity.LoginActivity;
+import br.com.ufopaoriximina.projcadfish.activity.UserCadastroActivity;
 import br.com.ufopaoriximina.projcadfish.datamodel.DataModelPeixe;
 import br.com.ufopaoriximina.projcadfish.datamodel.DataModelUsuario;
 
@@ -51,7 +55,10 @@ public class Passo1CdGuia extends AppCompatActivity {
                 Intent i = new Intent(getApplicationContext(), Passo2CdGuia.class);
                 i.putExtra(DataModelUsuario.getNome(), nomeString);
                 i.putExtra(DataModelUsuario.getAnosxp(), expInt);
-                startActivity(i);
+
+                ActivityOptionsCompat activityOptionsCompat = ActivityOptionsCompat.makeCustomAnimation(getApplicationContext()
+                        , R.transition.fade_in, R.transition.fade_out);
+                ActivityCompat.startActivity(Passo1CdGuia.this, i, activityOptionsCompat.toBundle());
                 finish();
             }else {
                 Toast.makeText(getApplicationContext(), "Preencha o campo 'EXPERIÊNCIA'", Toast.LENGTH_SHORT).show();

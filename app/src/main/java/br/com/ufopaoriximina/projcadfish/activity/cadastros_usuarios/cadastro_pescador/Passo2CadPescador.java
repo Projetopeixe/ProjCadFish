@@ -1,6 +1,8 @@
 package br.com.ufopaoriximina.projcadfish.activity.cadastros_usuarios.cadastro_pescador;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.app.ActivityOptionsCompat;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,6 +16,7 @@ import com.github.rtoshiro.util.format.SimpleMaskFormatter;
 import com.github.rtoshiro.util.format.text.MaskTextWatcher;
 
 import br.com.ufopaoriximina.projcadfish.R;
+import br.com.ufopaoriximina.projcadfish.activity.cadastros_usuarios.cadastro_guia.Passo1CdGuia;
 import br.com.ufopaoriximina.projcadfish.activity.cadastros_usuarios.cadastro_guia.Passo3CdGuia;
 import br.com.ufopaoriximina.projcadfish.datamodel.DataModelUsuario;
 
@@ -68,7 +71,9 @@ public class Passo2CadPescador extends AppCompatActivity {
                         Intent i = new Intent(getApplicationContext(), Passo3CdPescador.class);
                         i.putExtra(DataModelUsuario.getCpf(), numCpf);
                         i.putExtra(DataModelUsuario.getTelefone(), numTel);
-                        startActivity(i);
+                        ActivityOptionsCompat activityOptionsCompat = ActivityOptionsCompat.makeCustomAnimation(getApplicationContext()
+                                , R.transition.fade_in, R.transition.fade_out);
+                        ActivityCompat.startActivity(Passo2CadPescador.this, i, activityOptionsCompat.toBundle());
                         finish();
                     }else{
                         Toast.makeText(getApplicationContext(), "Número de Telefone Inválido!", Toast.LENGTH_SHORT).show();
