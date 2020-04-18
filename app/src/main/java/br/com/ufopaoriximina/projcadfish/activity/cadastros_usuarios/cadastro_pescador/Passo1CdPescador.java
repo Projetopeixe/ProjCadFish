@@ -13,9 +13,6 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import br.com.ufopaoriximina.projcadfish.R;
-import br.com.ufopaoriximina.projcadfish.activity.UserCadastroActivity;
-import br.com.ufopaoriximina.projcadfish.activity.cadastros_usuarios.cadastro_guia.Passo1CdGuia;
-import br.com.ufopaoriximina.projcadfish.activity.cadastros_usuarios.cadastro_guia.Passo2CdGuia;
 import br.com.ufopaoriximina.projcadfish.datamodel.DataModelUsuario;
 
 public class Passo1CdPescador extends AppCompatActivity {
@@ -50,7 +47,7 @@ public class Passo1CdPescador extends AppCompatActivity {
         if(!nomeString.isEmpty()){
             if (!exp.isEmpty()){
                 int expInt = Integer.parseInt(exp);
-                Intent i = new Intent(getApplicationContext(), Passo2CadPescador.class);
+                Intent i = new Intent(getApplicationContext(), Passo2CdPescador.class);
                 i.putExtra(DataModelUsuario.getNome(), nomeString);
                 i.putExtra(DataModelUsuario.getAnosxp(), expInt);
                 ActivityOptionsCompat activityOptionsCompat = ActivityOptionsCompat.makeCustomAnimation(getApplicationContext()

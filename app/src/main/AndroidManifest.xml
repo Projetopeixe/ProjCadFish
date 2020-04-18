@@ -11,6 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".activity.cadastros_usuarios.cadastro_pescador.Passo5CdPescador"></activity>
+        <activity android:name=".activity.cadastros_usuarios.cadastro_pescador.Passo4CdPescador" />
+        <activity android:name=".activity.cadastros_usuarios.cadastro_guia.Passo5CdGuia" />
+        <activity android:name=".activity.cadastros_usuarios.cadastro_guia.Passo4CdGuia" />
         <activity android:name=".activity.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,7 +26,7 @@
             android:name=".activity.cadastros_usuarios.cadastro_pescador.Passo3CdPescador"
             android:theme="@style/IntroActivity" />
         <activity
-            android:name=".activity.cadastros_usuarios.cadastro_pescador.Passo2CadPescador"
+            android:name=".activity.cadastros_usuarios.cadastro_pescador.Passo2CdPescador"
             android:theme="@style/IntroActivity" />
         <activity
             android:name=".activity.cadastros_usuarios.cadastro_guia.Passo3CdGuia"

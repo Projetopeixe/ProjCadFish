@@ -16,11 +16,9 @@ import com.github.rtoshiro.util.format.SimpleMaskFormatter;
 import com.github.rtoshiro.util.format.text.MaskTextWatcher;
 
 import br.com.ufopaoriximina.projcadfish.R;
-import br.com.ufopaoriximina.projcadfish.activity.cadastros_usuarios.cadastro_guia.Passo1CdGuia;
-import br.com.ufopaoriximina.projcadfish.activity.cadastros_usuarios.cadastro_guia.Passo3CdGuia;
 import br.com.ufopaoriximina.projcadfish.datamodel.DataModelUsuario;
 
-public class Passo2CadPescador extends AppCompatActivity {
+public class Passo2CdPescador extends AppCompatActivity {
     EditText cpf, numberPhone;
     Button cancelar;
     ImageButton next;
@@ -73,7 +71,7 @@ public class Passo2CadPescador extends AppCompatActivity {
                         i.putExtra(DataModelUsuario.getTelefone(), numTel);
                         ActivityOptionsCompat activityOptionsCompat = ActivityOptionsCompat.makeCustomAnimation(getApplicationContext()
                                 , R.transition.fade_in, R.transition.fade_out);
-                        ActivityCompat.startActivity(Passo2CadPescador.this, i, activityOptionsCompat.toBundle());
+                        ActivityCompat.startActivity(Passo2CdPescador.this, i, activityOptionsCompat.toBundle());
                         finish();
                     }else{
                         Toast.makeText(getApplicationContext(), "Número de Telefone Inválido!", Toast.LENGTH_SHORT).show();
