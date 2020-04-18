@@ -35,7 +35,7 @@
             app:layout_constraintVertical_bias="0.0">
 
             <EditText
-                android:id="@+id/nome"
+                android:id="@+id/editCpf"
                 android:layout_width="312dp"
                 android:layout_height="58dp"
                 android:layout_marginTop="88dp"
@@ -51,7 +51,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
-                android:id="@+id/experiencia"
+                android:id="@+id/editTelefone"
                 android:layout_width="317dp"
                 android:layout_height="59dp"
                 android:layout_marginTop="32dp"
@@ -63,25 +63,25 @@
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/nome"
+                app:layout_constraintTop_toBottomOf="@+id/editCpf"
                 tools:ignore="MissingConstraints" />
 
             <ImageButton
-                android:id="@+id/signin"
+                android:id="@+id/next2"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_gravity="end"
                 android:background="@drawable/button_back_register"
                 android:src="@drawable/ic_arrow_forward_black_24dp"
-                app:layout_constraintBottom_toTopOf="@+id/signup"
+                app:layout_constraintBottom_toTopOf="@+id/btnAvancar2"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.947"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/experiencia"
+                app:layout_constraintTop_toBottomOf="@id/editTelefone"
                 app:layout_constraintVertical_bias="0.532" />
 
             <Button
-                android:id="@+id/signup"
+                android:id="@+id/btnAvancar2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
