@@ -46,7 +46,7 @@ public class Passo1CdPescador extends AppCompatActivity {
         if(!nomeString.isEmpty()){
             if (!exp.isEmpty()){
                 int expInt = Integer.parseInt(exp);
-                Intent i = new Intent(getApplicationContext(), Passo2CdGuia.class);
+                Intent i = new Intent(getApplicationContext(), Passo2CadPescador.class);
                 i.putExtra(DataModelUsuario.getNome(), nomeString);
                 i.putExtra(DataModelUsuario.getAnosxp(), expInt);
                 startActivity(i);
