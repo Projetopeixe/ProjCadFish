@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">#FB8C00</color>
     <color name="colorPrimaryDark">#F4511E</color>
-    <color name="colorAccent">#00C853</color>
+    <color name="colorAccent">#FAAA34</color>
 
     <!-- Cores intro Activity -->
     <color name="PrimaryIntro"></color>
