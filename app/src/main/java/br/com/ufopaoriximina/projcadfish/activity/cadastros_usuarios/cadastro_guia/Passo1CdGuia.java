@@ -2,6 +2,7 @@ package br.com.ufopaoriximina.projcadfish.activity.cadastros_usuarios.cadastro_g
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -20,6 +21,8 @@ public class Passo1CdGuia extends AppCompatActivity {
     }
 
     public void abrirProximoPasso(View view){
-
+        Intent i = new Intent(getApplicationContext(), Passo2CdGuia.class);
+        startActivity(i);
+        finish();;
     }
 }
