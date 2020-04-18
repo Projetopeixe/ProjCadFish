@@ -2,6 +2,7 @@ package br.com.ufopaoriximina.projcadfish.dao;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
@@ -65,5 +66,13 @@ public class DataSource extends SQLiteOpenHelper {
         return sucesso;
     }
 
-    //public boolean alterar(String tabela, ContentValues )
+    public boolean alterar(String tabela, ContentValues dados){
+        boolean sucesso = true;
+
+        int id = dados.getAsInteger("id");
+
+        sucesso = db.update(tabela, dados, "id=?", new String[]{Integer.toString(id)}) >0;
+
+        return sucesso;
+    }
 }
