@@ -1,9 +1,10 @@
 <resources>
     <declare-styleable name="MyView">
         <attr name="exampleString" format="string" />
-        <attr name="exampleDimension" format="dimension" />
-        <attr name="exampleColor" format="color" />
-        <attr name="exampleDrawable" format="color|reference" />
+        <attr  name="exampleDimension" format="dimension" />
+        <attr  name="exampleColor" format="color" />
+        <attr  name="exampleDrawable" format="color|reference" />
+        <attr name="contentDescription" format="string"/>
     </declare-styleable>
-    //teste
+
 </resources>

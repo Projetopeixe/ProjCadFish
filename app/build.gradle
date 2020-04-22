@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 2
+    compileSdkVersion 28
     defaultConfig {
         applicationId "br.com.ufopaoriximina.projcadfish"
         minSdkVersion 23
@@ -37,6 +37,7 @@ dependencies {
     implementation 'com.android.volley:volley:1.1.1'
     implementation 'com.google.android.gms:play-services-maps:11.8.0'
     implementation 'de.hdodenhof:circleimageview:3.1.0'
+    implementation 'com.github.rtoshiro.mflibrary:mflibrary:1.0.0'
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.19'
 
