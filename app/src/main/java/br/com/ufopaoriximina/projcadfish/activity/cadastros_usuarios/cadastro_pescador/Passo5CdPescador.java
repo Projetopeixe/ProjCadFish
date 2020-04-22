@@ -12,5 +12,6 @@ public class Passo5CdPescador extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_5);
+        getSupportActionBar().hide();
     }
 }
