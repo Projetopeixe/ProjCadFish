@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#FB8C00</color>
-    <color name="colorPrimaryDark">#F4511E</color>
-    <color name="colorAccent">#FAAA34</color>
+    <color type="attr" name="colorPrimary">#FB8C00</color>
+    <color type="attr" name="colorPrimaryDark">#F4511E</color>
+    <color type="attr" name="colorAccent">#FAAA34</color>
 
     <!-- Cores intro Activity -->
-    <color name="PrimaryIntro"></color>
-    <color name="PrimaryDarkIntro">#FFFFFF</color>
-    <color name="AccentIntro">#ffffff</color>
-    <color name="botao_cadastro">#26742A</color>
-    <color name="register">#12A54F</color>
+    <color type="attr" name="PrimaryIntro"></color>
+    <color type="attr" name="PrimaryDarkIntro">#FFFFFF</color>
+    <color type="attr" name="AccentIntro">#ffffff</color>
+    <color type="attr" name="botao_cadastro">#26742A</color>
+    <color type="attr" name="register">#12A54F</color>
 
-    //teste
 </resources>

@@ -76,7 +76,7 @@
                 app:layout_constraintVertical_bias="0.983" />
 
             <ImageView
-                android:id="@+id/imageView3"
+                android:id="@+id/openCam"
                 android:layout_width="56dp"
                 android:layout_height="54dp"
                 app:layout_constraintBottom_toBottomOf="@+id/fotoUser"
@@ -87,7 +87,7 @@
                 app:srcCompat="@drawable/ic_camera_alt_black_24dp" />
 
             <ImageView
-                android:id="@+id/imageView4"
+                android:id="@+id/openFolders"
                 android:layout_width="56dp"
                 android:layout_height="56dp"
                 app:layout_constraintBottom_toBottomOf="@+id/fotoUser"
