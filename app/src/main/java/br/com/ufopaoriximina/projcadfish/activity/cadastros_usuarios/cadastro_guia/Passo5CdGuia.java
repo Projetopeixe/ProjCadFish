@@ -16,6 +16,7 @@ import android.widget.ImageView;
 
 import br.com.ufopaoriximina.projcadfish.R;
 import br.com.ufopaoriximina.projcadfish.activity.UserCadastroActivity;
+import br.com.ufopaoriximina.projcadfish.config.Permissoes;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class Passo5CdGuia extends AppCompatActivity {
@@ -35,7 +36,7 @@ public class Passo5CdGuia extends AppCompatActivity {
         setContentView(R.layout.activity_register_5);
         getSupportActionBar().hide();
         carregarComponentes();
-
+        Permissoes.validarPermissoes(permissoesNecessarias, this, 1);
         imagemCamera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -91,7 +92,7 @@ public class Passo5CdGuia extends AppCompatActivity {
         }
     }
 
-    /*public void sucessAoCadastrar(){
+    public void sucessAoCadastrar(){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Sucesso ao realizar cadastro");
         builder.setCancelable(false);
@@ -106,5 +107,5 @@ public class Passo5CdGuia extends AppCompatActivity {
         });
         builder.create();
         builder.show();
-    }*/
+    }
 }
