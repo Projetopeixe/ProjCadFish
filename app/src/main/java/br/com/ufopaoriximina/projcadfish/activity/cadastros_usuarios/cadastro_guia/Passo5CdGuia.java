@@ -12,11 +12,17 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
+
+import com.google.android.material.textfield.TextInputEditText;
 
 import br.com.ufopaoriximina.projcadfish.R;
+import br.com.ufopaoriximina.projcadfish.activity.OpcaoPescaActivity;
 import br.com.ufopaoriximina.projcadfish.activity.UserCadastroActivity;
 import br.com.ufopaoriximina.projcadfish.config.Permissoes;
+import br.com.ufopaoriximina.projcadfish.model.Usuario;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class Passo5CdGuia extends AppCompatActivity {
@@ -30,6 +36,7 @@ public class Passo5CdGuia extends AppCompatActivity {
             Manifest.permission.INTERNET, Manifest.permission.WRITE_EXTERNAL_STORAGE
     };
     private CircleImageView fotoUser;
+    private Button finalizar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,12 +63,20 @@ public class Passo5CdGuia extends AppCompatActivity {
                 }
             }
         });
+
+        finalizar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finalizarCadastro();
+            }
+        });
     }
 
     public void carregarComponentes(){
         imagemCamera = findViewById(R.id.openCam);
         imagemArmazenamento = findViewById(R.id.openFolders);
         fotoUser = findViewById(R.id.fotoUser);
+        finalizar = findViewById(R.id.btnFinalize);
     }
 
     @Override
@@ -92,6 +107,18 @@ public class Passo5CdGuia extends AppCompatActivity {
         }
     }
 
+    public void finalizarCadastro(){
+        Usuario usuario;
+        final Bundle dados = getIntent().getExtras();
+        if(dados != null){
+            Toast.makeText(getApplicationContext(), "Dados chegaram", Toast.LENGTH_SHORT).show();
+            Intent i = new Intent(getApplicationContext(), OpcaoPescaActivity.class);
+            startActivity(i);
+            finish();
+        }
+
+    }
+
     public void sucessAoCadastrar(){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Sucesso ao realizar cadastro");
@@ -100,7 +127,7 @@ public class Passo5CdGuia extends AppCompatActivity {
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Intent intent = new Intent(getApplicationContext(), UserCadastroActivity.class);
+                Intent intent = new Intent(getApplicationContext(), OpcaoPescaActivity.class);
                 startActivity(intent);
                 finish();
             }

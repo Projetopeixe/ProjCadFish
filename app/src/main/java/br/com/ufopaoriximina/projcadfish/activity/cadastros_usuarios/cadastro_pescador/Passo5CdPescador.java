@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import br.com.ufopaoriximina.projcadfish.R;
+import br.com.ufopaoriximina.projcadfish.activity.OpcaoPescaActivity;
 import br.com.ufopaoriximina.projcadfish.activity.UserCadastroActivity;
 import br.com.ufopaoriximina.projcadfish.config.Permissoes;
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -100,7 +101,7 @@ public class Passo5CdPescador extends AppCompatActivity {
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Intent intent = new Intent(getApplicationContext(), UserCadastroActivity.class);
+                Intent intent = new Intent(getApplicationContext(), OpcaoPescaActivity.class);
                 startActivity(intent);
                 finish();
             }

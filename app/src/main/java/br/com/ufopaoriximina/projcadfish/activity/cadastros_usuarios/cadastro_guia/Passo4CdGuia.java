@@ -58,13 +58,18 @@ public class Passo4CdGuia extends AppCompatActivity {
         if(!emailAdress.isEmpty() ){
             if (!password.isEmpty()) {
                 if(password.length() >= 8){
-                    Intent i = new Intent(getApplicationContext(), Passo5CdGuia.class);
-                    i.putExtra(DataModelUsuario.getCidade(), emailAdress);
-                    i.putExtra(DataModelUsuario.getEstado(), password);
-                    ActivityOptionsCompat activityOptionsCompat = ActivityOptionsCompat.makeCustomAnimation(getApplicationContext()
-                            , R.transition.fade_in, R.transition.fade_out);
-                    ActivityCompat.startActivity(Passo4CdGuia.this, i, activityOptionsCompat.toBundle());
-                    finish();
+                    final Bundle dados = getIntent().getExtras();
+                    if(dados != null){
+                        Intent i = new Intent(getApplicationContext(), Passo5CdGuia.class);
+                        i.putExtra(DataModelUsuario.getCidade(), emailAdress);
+                        i.putExtra(DataModelUsuario.getEstado(), password);
+                        ActivityOptionsCompat activityOptionsCompat = ActivityOptionsCompat.makeCustomAnimation(getApplicationContext()
+                                , R.transition.fade_in, R.transition.fade_out);
+                        ActivityCompat.startActivity(Passo4CdGuia.this, i, activityOptionsCompat.toBundle());
+                        finish();
+                    }else{
+                        Toast.makeText(getApplicationContext(), "Dados não passaram", Toast.LENGTH_SHORT).show();
+                    }
                 }else{
                     Toast.makeText(getApplicationContext(), "Senha muito curta!", Toast.LENGTH_SHORT).show();
                 }

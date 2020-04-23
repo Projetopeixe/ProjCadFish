@@ -57,15 +57,18 @@ public class Passo3CdGuia extends AppCompatActivity {
         String state = estado.getText().toString();
         if(!city.isEmpty() ){
                 if (!state.isEmpty()) {
-
-                        Intent i = new Intent(getApplicationContext(), Passo4CdGuia.class);
-                        i.putExtra(DataModelUsuario.getCidade(), city);
-                        i.putExtra(DataModelUsuario.getEstado(), state);
-                        ActivityOptionsCompat activityOptionsCompat = ActivityOptionsCompat.makeCustomAnimation(getApplicationContext()
-                                , R.transition.fade_in, R.transition.fade_out);
-                        ActivityCompat.startActivity(Passo3CdGuia.this, i, activityOptionsCompat.toBundle());
-                        finish();
-
+                        final Bundle dados = getIntent().getExtras();
+                        if(dados != null){
+                            Intent i = new Intent(getApplicationContext(), Passo4CdGuia.class);
+                            i.putExtra(DataModelUsuario.getCidade(), city);
+                            i.putExtra(DataModelUsuario.getEstado(), state);
+                            ActivityOptionsCompat activityOptionsCompat = ActivityOptionsCompat.makeCustomAnimation(getApplicationContext()
+                                    , R.transition.fade_in, R.transition.fade_out);
+                            ActivityCompat.startActivity(Passo3CdGuia.this, i, activityOptionsCompat.toBundle());
+                            finish();
+                        }else {
+                            Toast.makeText(getApplicationContext(), "Dados não passaram", Toast.LENGTH_SHORT).show();
+                        }
                 } else {
                     Toast.makeText(getApplicationContext(), "Preencha o campo 'ESTADO'", Toast.LENGTH_SHORT).show();
                 }

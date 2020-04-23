@@ -71,13 +71,25 @@ public class Passo2CdGuia extends AppCompatActivity {
             if(numCpf.length() >= 11) {
                 if (!numTel.isEmpty()) {
                     if(numTel.length() >= 11) {
-                        Intent i = new Intent(getApplicationContext(), Passo3CdGuia.class);
-                        i.putExtra(DataModelUsuario.getCpf(), numCpf);
-                        i.putExtra(DataModelUsuario.getTelefone(), numTel);
-                        ActivityOptionsCompat activityOptionsCompat = ActivityOptionsCompat.makeCustomAnimation(getApplicationContext()
-                                , R.transition.fade_in, R.transition.fade_out);
-                        ActivityCompat.startActivity(Passo2CdGuia.this, i, activityOptionsCompat.toBundle());
-                        finish();
+                        final Bundle dados = getIntent().getExtras();
+                        if(dados != null){
+                            String nome = dados.getString(DataModelUsuario.getNome());
+                            int exp = dados.getInt(DataModelUsuario.getAnosxp());
+
+                            Intent i = new Intent(getApplicationContext(), Passo3CdGuia.class);
+                            i.putExtra(DataModelUsuario.getNome(), nome);
+                            i.putExtra(DataModelUsuario.getAnosxp(), exp);
+                            i.putExtra(DataModelUsuario.getCpf(), numCpf);
+                            i.putExtra(DataModelUsuario.getTelefone(), numTel);
+
+                            ActivityOptionsCompat activityOptionsCompat = ActivityOptionsCompat.makeCustomAnimation(getApplicationContext()
+                                    , R.transition.fade_in, R.transition.fade_out);
+                            ActivityCompat.startActivity(Passo2CdGuia.this, i, activityOptionsCompat.toBundle());
+                            finish();
+                        }else {
+                            Toast.makeText(getApplicationContext(), "Dados não Passaram", Toast.LENGTH_SHORT).show();
+                        }
+
                     }else{
                         Toast.makeText(getApplicationContext(), "Número de Telefone Inválido!", Toast.LENGTH_SHORT).show();
                     }
