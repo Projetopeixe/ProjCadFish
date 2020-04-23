@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
@@ -22,6 +23,7 @@ import br.com.ufopaoriximina.projcadfish.R;
 import br.com.ufopaoriximina.projcadfish.activity.OpcaoPescaActivity;
 import br.com.ufopaoriximina.projcadfish.activity.UserCadastroActivity;
 import br.com.ufopaoriximina.projcadfish.config.Permissoes;
+import br.com.ufopaoriximina.projcadfish.datamodel.DataModelUsuario;
 import br.com.ufopaoriximina.projcadfish.model.Usuario;
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -36,6 +38,7 @@ public class Passo5CdGuia extends AppCompatActivity {
             Manifest.permission.INTERNET, Manifest.permission.WRITE_EXTERNAL_STORAGE
     };
     private CircleImageView fotoUser;
+    private Bitmap photoUser;
     private Button finalizar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,6 +102,7 @@ public class Passo5CdGuia extends AppCompatActivity {
 
                 if(imagem != null){
                     fotoUser.setImageBitmap(imagem);
+                    photoUser = imagem;
 
                 }
             }catch (Exception e){
@@ -111,10 +115,17 @@ public class Passo5CdGuia extends AppCompatActivity {
         Usuario usuario;
         final Bundle dados = getIntent().getExtras();
         if(dados != null){
-            Toast.makeText(getApplicationContext(), "Dados chegaram", Toast.LENGTH_SHORT).show();
-            Intent i = new Intent(getApplicationContext(), OpcaoPescaActivity.class);
-            startActivity(i);
-            finish();
+            String nome = dados.getString(DataModelUsuario.getNome());
+            int exp = dados.getInt(DataModelUsuario.getAnosxp());
+            String cpf = dados.getString(DataModelUsuario.getCpf());
+            String telefone = dados.getString(DataModelUsuario.getTelefone());
+            String city = dados.getString(DataModelUsuario.getCidade());
+            String estado = dados.getString(DataModelUsuario.getEstado());
+            String email = dados.getString(DataModelUsuario.getEmail());
+            String senha = dados.getString(DataModelUsuario.getSenha());
+
+            usuario = new Usuario(nome, exp, cpf, telefone, city, estado, email, senha, photoUser, 1);
+
         }
 
     }

@@ -16,6 +16,19 @@ public class Usuario {
     private Bitmap foto;
     private int tipo;
 
+
+    public Usuario(String nome, int anosxp, String cpf, String telefone, String cidade, String estado, String email, String senha, Bitmap foto, int tipo){
+        this.name = nome;
+        this.anosxp = anosxp;
+        this.cpf = cpf;
+        this.telefone = telefone;
+        this.cidade = cidade;
+        this.estado = estado;
+        this.email = email;
+        this.senha = senha;
+        this.foto = foto;
+        this.tipo = tipo;
+    }
     public int getId() {
         return id;
     }

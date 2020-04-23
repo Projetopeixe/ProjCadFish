@@ -6,6 +6,7 @@ import androidx.core.app.ActivityOptionsCompat;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,6 +14,7 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import br.com.ufopaoriximina.projcadfish.R;
+import br.com.ufopaoriximina.projcadfish.datamodel.DataModelEspecie;
 import br.com.ufopaoriximina.projcadfish.datamodel.DataModelUsuario;
 
 public class Passo4CdGuia extends AppCompatActivity {
@@ -60,7 +62,19 @@ public class Passo4CdGuia extends AppCompatActivity {
                 if(password.length() >= 8){
                     final Bundle dados = getIntent().getExtras();
                     if(dados != null){
+                        String nome = dados.getString(DataModelUsuario.getNome());
+                        int exp = dados.getInt(DataModelUsuario.getAnosxp());
+                        String cpf = dados.getString(DataModelUsuario.getCpf());
+                        String telefone = dados.getString(DataModelUsuario.getTelefone());
+                        String city = dados.getString(DataModelUsuario.getCidade());
+                        String estado = dados.getString(DataModelUsuario.getEstado());
                         Intent i = new Intent(getApplicationContext(), Passo5CdGuia.class);
+                        i.putExtra(DataModelUsuario.getNome(), nome);
+                        i.putExtra(DataModelUsuario.getAnosxp(), exp);
+                        i.putExtra(DataModelUsuario.getCpf(), cpf);
+                        i.putExtra(DataModelUsuario.getTelefone(), telefone);
+                        i.putExtra(DataModelUsuario.getCidade(), city);
+                        i.putExtra(DataModelUsuario.getEstado(), estado);
                         i.putExtra(DataModelUsuario.getCidade(), emailAdress);
                         i.putExtra(DataModelUsuario.getEstado(), password);
                         ActivityOptionsCompat activityOptionsCompat = ActivityOptionsCompat.makeCustomAnimation(getApplicationContext()
