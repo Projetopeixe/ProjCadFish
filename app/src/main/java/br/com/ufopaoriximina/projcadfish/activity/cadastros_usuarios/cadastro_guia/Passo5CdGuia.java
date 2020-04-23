@@ -23,6 +23,7 @@ import br.com.ufopaoriximina.projcadfish.R;
 import br.com.ufopaoriximina.projcadfish.activity.OpcaoPescaActivity;
 import br.com.ufopaoriximina.projcadfish.activity.UserCadastroActivity;
 import br.com.ufopaoriximina.projcadfish.config.Permissoes;
+import br.com.ufopaoriximina.projcadfish.dao.BDDao;
 import br.com.ufopaoriximina.projcadfish.datamodel.DataModelUsuario;
 import br.com.ufopaoriximina.projcadfish.model.Usuario;
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -125,7 +126,19 @@ public class Passo5CdGuia extends AppCompatActivity {
             String senha = dados.getString(DataModelUsuario.getSenha());
 
             usuario = new Usuario(nome, exp, cpf, telefone, city, estado, email, senha, photoUser, 1);
+            BDDao bd = new BDDao(this);
+            try {
+                boolean sucesso = bd.salvarDataInfoGeral(usuario);
+                //boolean sucesso2 = bd.salvarDataPerfil(usuario);
+                if(sucesso){
+                    sucessAoCadastrar();
+                }
+            }catch (Exception e){
+                Toast.makeText(getApplicationContext(), "Erro ao cadastrar: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+            }
 
+        }else{
+            Toast.makeText(getApplicationContext(), "Dados não passaram", Toast.LENGTH_SHORT).show();
         }
 
     }
