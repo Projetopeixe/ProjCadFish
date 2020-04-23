@@ -136,5 +136,7 @@
         android:layout_height="fill_parent"
         android:src="@drawable/bg_opcao" />
 
+    //teste
+
 
 </LinearLayout>
