@@ -1,5 +1,6 @@
 package br.com.ufopaoriximina.projcadfish.activity;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -8,6 +9,7 @@ import androidx.core.app.ActivityOptionsCompat;
 import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
@@ -69,5 +71,28 @@ public class LoginActivity extends AppCompatActivity  {
                 });
         AlertDialog alert = builder.create();
         alert.show();
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        for (int permissaoResultado: grantResults){
+            if(permissaoResultado == PackageManager.PERMISSION_DENIED){
+                alertaValidacaoPermissao();
+            }
+        }
+    }
+    private void alertaValidacaoPermissao(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Permissões Negadas!");
+        builder.setMessage("Para utilizar o aplicativo é necessário aceitar as permissões");
+        builder.setPositiveButton("Confirmar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                finish();
+            }
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
     }
 }
