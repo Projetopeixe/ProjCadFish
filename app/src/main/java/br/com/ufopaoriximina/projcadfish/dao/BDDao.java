@@ -62,7 +62,7 @@ public class BDDao extends DataSource{
 
         dados.put(DataModelUsuario.getEmail(), obj.getEmail());
         dados.put(DataModelUsuario.getSenha(), obj.getSenha());
-        dados.put(DataModelUsuario.getFoto(), convertCircleBitmapToByteArray(obj.getFoto()));
+        dados.put(DataModelUsuario.getFoto(), obj.getFoto());
         dados.put(DataModelUsuario.getTipo(), obj.getTipo());
 
         sucesso = insert(DataModelUsuario.getTabelaPerfil(), dados);
@@ -148,7 +148,7 @@ public class BDDao extends DataSource{
         dados.put(DataModelUsuario.getId(), obj.getId());
         dados.put(DataModelUsuario.getEmail(), obj.getEmail());
         dados.put(DataModelUsuario.getSenha(), obj.getSenha());
-        dados.put(DataModelUsuario.getFoto(), convertCircleBitmapToByteArray(obj.getFoto()));
+        dados.put(DataModelUsuario.getFoto(), obj.getFoto());
         dados.put(DataModelUsuario.getTipo(), obj.getTipo());
         sucesso = alterar(DataModelUsuario.getTabelaPerfil(), dados);
         return sucesso;

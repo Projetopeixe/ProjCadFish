@@ -1,9 +1,11 @@
 package br.com.ufopaoriximina.projcadfish.activity.cadastros_usuarios.cadastro_guia;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.app.ActivityOptionsCompat;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.ContactsContract;
@@ -14,8 +16,11 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import br.com.ufopaoriximina.projcadfish.R;
+import br.com.ufopaoriximina.projcadfish.activity.OpcaoPescaActivity;
+import br.com.ufopaoriximina.projcadfish.dao.BDDao;
 import br.com.ufopaoriximina.projcadfish.datamodel.DataModelEspecie;
 import br.com.ufopaoriximina.projcadfish.datamodel.DataModelUsuario;
+import br.com.ufopaoriximina.projcadfish.model.Usuario;
 
 public class Passo3CdGuia extends AppCompatActivity {
 
@@ -65,18 +70,16 @@ public class Passo3CdGuia extends AppCompatActivity {
                             int exp = dados.getInt(DataModelUsuario.getAnosxp());
                             String cpf = dados.getString(DataModelUsuario.getCpf());
                             String telefone = dados.getString(DataModelUsuario.getTelefone());
-                            Intent i = new Intent(getApplicationContext(), Passo4CdGuia.class);
-                            i.putExtra(DataModelUsuario.getNome(),nome);
-                            i.putExtra(DataModelUsuario.getAnosxp(), exp);
-                            i.putExtra(DataModelUsuario.getCpf(), cpf);
-                            i.putExtra(DataModelUsuario.getTelefone(), telefone);
-                            i.putExtra(DataModelUsuario.getCidade(), city);
-                            i.putExtra(DataModelUsuario.getEstado(), state);
-
-                            ActivityOptionsCompat activityOptionsCompat = ActivityOptionsCompat.makeCustomAnimation(getApplicationContext()
-                                    , R.transition.fade_in, R.transition.fade_out);
-                            ActivityCompat.startActivity(Passo3CdGuia.this, i, activityOptionsCompat.toBundle());
-                            finish();
+                            Usuario usuario = new Usuario(nome, exp, cpf, telefone, city, state);
+                            BDDao bd = new BDDao(this);
+                            try {
+                                boolean sucesso = bd.salvarDataInfoGeral(usuario);
+                                if(sucesso){
+                                    sucessAoCadastrar();
+                                }
+                            }catch (Exception e) {
+                                Toast.makeText(getApplicationContext(), "Erro ao cadastrar: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                            }
                         }else {
                             Toast.makeText(getApplicationContext(), "Dados não passaram", Toast.LENGTH_SHORT).show();
                         }
@@ -87,5 +90,24 @@ public class Passo3CdGuia extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Preencha o campo 'CIDADE'", Toast.LENGTH_SHORT).show();
         }
 
+    }
+
+    public void sucessAoCadastrar(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Sucesso ao realizar cadastro");
+        builder.setCancelable(false);
+        builder.setMessage("Usuário cadastrado com sucesso!");
+        builder.setPositiveButton("Criar Perfil", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Intent i = new Intent(getApplicationContext(), Passo4CdGuia.class);
+                ActivityOptionsCompat activityOptionsCompat = ActivityOptionsCompat.makeCustomAnimation(getApplicationContext()
+                        , R.transition.fade_in, R.transition.fade_out);
+                ActivityCompat.startActivity(Passo3CdGuia.this, i, activityOptionsCompat.toBundle());
+                finish();
+            }
+        });
+        builder.create();
+        builder.show();
     }
 }

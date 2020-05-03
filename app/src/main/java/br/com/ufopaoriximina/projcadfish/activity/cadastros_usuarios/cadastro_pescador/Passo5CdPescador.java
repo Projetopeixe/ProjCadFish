@@ -12,12 +12,17 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import br.com.ufopaoriximina.projcadfish.R;
 import br.com.ufopaoriximina.projcadfish.activity.OpcaoPescaActivity;
 import br.com.ufopaoriximina.projcadfish.activity.UserCadastroActivity;
 import br.com.ufopaoriximina.projcadfish.config.Permissoes;
+import br.com.ufopaoriximina.projcadfish.dao.BDDao;
+import br.com.ufopaoriximina.projcadfish.datamodel.DataModelUsuario;
+import br.com.ufopaoriximina.projcadfish.model.Usuario;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class Passo5CdPescador extends AppCompatActivity {
@@ -31,12 +36,20 @@ public class Passo5CdPescador extends AppCompatActivity {
             Manifest.permission.INTERNET, Manifest.permission.WRITE_EXTERNAL_STORAGE
     };
     private CircleImageView fotoUser;
+    private Bitmap photoUser;
+    private Button finalizar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_5);
         getSupportActionBar().hide();
         carregarComponentes();
+        finalizar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finalizarCadastro();
+            }
+        });
         Permissoes.validarPermissoes(permissoesNecessarias, this, 1);
         imagemCamera.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,6 +78,37 @@ public class Passo5CdPescador extends AppCompatActivity {
         fotoUser = findViewById(R.id.fotoUser);
     }
 
+    public void finalizarCadastro(){
+        Usuario usuario;
+        final Bundle dados = getIntent().getExtras();
+        if(dados != null){
+            String nome = dados.getString(DataModelUsuario.getNome());
+            int exp = dados.getInt(DataModelUsuario.getAnosxp());
+            String cpf = dados.getString(DataModelUsuario.getCpf());
+            String telefone = dados.getString(DataModelUsuario.getTelefone());
+            String city = dados.getString(DataModelUsuario.getCidade());
+            String estado = dados.getString(DataModelUsuario.getEstado());
+            String email = dados.getString(DataModelUsuario.getEmail());
+            String senha = dados.getString(DataModelUsuario.getSenha());
+
+            //usuario = new Usuario(nome, exp, cpf, telefone, city, estado, email, senha, er, 2);
+            BDDao bd = new BDDao(this);
+            try {
+                //boolean sucesso = bd.salvarDataInfoGeral(usuario);
+                //boolean sucesso2 = bd.salvarDataPerfil(usuario);
+                /*if(sucesso){
+                    sucessAoCadastrar();
+                }*/
+            }catch (Exception e){
+                Toast.makeText(getApplicationContext(), "Erro ao cadastrar: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+
+        }else{
+            Toast.makeText(getApplicationContext(), "Dados não passaram", Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -85,6 +129,7 @@ public class Passo5CdPescador extends AppCompatActivity {
 
                 if(imagem != null){
                     fotoUser.setImageBitmap(imagem);
+                    photoUser = imagem;
 
                 }
             }catch (Exception e){

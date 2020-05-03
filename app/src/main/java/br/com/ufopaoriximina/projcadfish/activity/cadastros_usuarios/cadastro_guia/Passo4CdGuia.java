@@ -60,30 +60,13 @@ public class Passo4CdGuia extends AppCompatActivity {
         if(!emailAdress.isEmpty() ){
             if (!password.isEmpty()) {
                 if(password.length() >= 8){
-                    final Bundle dados = getIntent().getExtras();
-                    if(dados != null){
-                        String nome = dados.getString(DataModelUsuario.getNome());
-                        int exp = dados.getInt(DataModelUsuario.getAnosxp());
-                        String cpf = dados.getString(DataModelUsuario.getCpf());
-                        String telefone = dados.getString(DataModelUsuario.getTelefone());
-                        String city = dados.getString(DataModelUsuario.getCidade());
-                        String estado = dados.getString(DataModelUsuario.getEstado());
                         Intent i = new Intent(getApplicationContext(), Passo5CdGuia.class);
-                        i.putExtra(DataModelUsuario.getNome(), nome);
-                        i.putExtra(DataModelUsuario.getAnosxp(), exp);
-                        i.putExtra(DataModelUsuario.getCpf(), cpf);
-                        i.putExtra(DataModelUsuario.getTelefone(), telefone);
-                        i.putExtra(DataModelUsuario.getCidade(), city);
-                        i.putExtra(DataModelUsuario.getEstado(), estado);
-                        i.putExtra(DataModelUsuario.getCidade(), emailAdress);
-                        i.putExtra(DataModelUsuario.getEstado(), password);
+                        i.putExtra(DataModelUsuario.getEmail(), emailAdress);
+                        i.putExtra(DataModelUsuario.getSenha(), password);
                         ActivityOptionsCompat activityOptionsCompat = ActivityOptionsCompat.makeCustomAnimation(getApplicationContext()
                                 , R.transition.fade_in, R.transition.fade_out);
                         ActivityCompat.startActivity(Passo4CdGuia.this, i, activityOptionsCompat.toBundle());
                         finish();
-                    }else{
-                        Toast.makeText(getApplicationContext(), "Dados não passaram", Toast.LENGTH_SHORT).show();
-                    }
                 }else{
                     Toast.makeText(getApplicationContext(), "Senha muito curta!", Toast.LENGTH_SHORT).show();
                 }

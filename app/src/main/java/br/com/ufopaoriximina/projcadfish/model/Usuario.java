@@ -13,21 +13,23 @@ public class Usuario {
     private String telefone;
     private String estado;
     private String cidade;
-    private Bitmap foto;
+    private byte[] foto;
     private int tipo;
 
+    public Usuario(String email, String senha, byte[] foto, int tipo) {
+        this.email = email;
+        this.senha = senha;
+        this.foto = foto;
+        this.tipo = tipo;
+    }
 
-    public Usuario(String nome, int anosxp, String cpf, String telefone, String cidade, String estado, String email, String senha, Bitmap foto, int tipo){
+    public Usuario(String nome, int anosxp, String cpf, String telefone, String cidade, String estado){
         this.name = nome;
         this.anosxp = anosxp;
         this.cpf = cpf;
         this.telefone = telefone;
         this.cidade = cidade;
         this.estado = estado;
-        this.email = email;
-        this.senha = senha;
-        this.foto = foto;
-        this.tipo = tipo;
     }
     public int getId() {
         return id;
@@ -52,11 +54,11 @@ public class Usuario {
         this.tipo = tipo;
     }
 
-    public Bitmap getFoto() {
+    public byte[] getFoto() {
         return foto;
     }
 
-    public void setFoto(Bitmap foto) {
+    public void setFoto(byte[] foto) {
         this.foto = foto;
     }
 

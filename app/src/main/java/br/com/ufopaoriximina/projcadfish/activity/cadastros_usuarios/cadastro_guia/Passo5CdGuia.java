@@ -8,6 +8,7 @@ import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
@@ -18,6 +19,8 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
+
+import java.io.ByteArrayOutputStream;
 
 import br.com.ufopaoriximina.projcadfish.R;
 import br.com.ufopaoriximina.projcadfish.activity.OpcaoPescaActivity;
@@ -115,21 +118,14 @@ public class Passo5CdGuia extends AppCompatActivity {
     public void finalizarCadastro(){
         Usuario usuario;
         final Bundle dados = getIntent().getExtras();
-        if(dados != null){
-            String nome = dados.getString(DataModelUsuario.getNome());
-            int exp = dados.getInt(DataModelUsuario.getAnosxp());
-            String cpf = dados.getString(DataModelUsuario.getCpf());
-            String telefone = dados.getString(DataModelUsuario.getTelefone());
-            String city = dados.getString(DataModelUsuario.getCidade());
-            String estado = dados.getString(DataModelUsuario.getEstado());
+
             String email = dados.getString(DataModelUsuario.getEmail());
             String senha = dados.getString(DataModelUsuario.getSenha());
 
-            usuario = new Usuario(nome, exp, cpf, telefone, city, estado, email, senha, photoUser, 1);
+            usuario = new Usuario(email, senha, convertToByte(fotoUser), 1);
             BDDao bd = new BDDao(this);
             try {
-                boolean sucesso = bd.salvarDataInfoGeral(usuario);
-                //boolean sucesso2 = bd.salvarDataPerfil(usuario);
+                boolean sucesso = bd.salvarDataPerfil(usuario);
                 if(sucesso){
                     sucessAoCadastrar();
                 }
@@ -137,12 +133,16 @@ public class Passo5CdGuia extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Erro ao cadastrar: " + e.getMessage(), Toast.LENGTH_SHORT).show();
             }
 
-        }else{
-            Toast.makeText(getApplicationContext(), "Dados não passaram", Toast.LENGTH_SHORT).show();
-        }
-
     }
 
+    public byte[] convertToByte(CircleImageView imagem) {
+        BitmapDrawable drawable = (BitmapDrawable) imagem.getDrawable();
+        Bitmap bitmap = drawable.getBitmap();
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
+        byte imagemBytes[] = stream.toByteArray();
+        return imagemBytes;
+    }
     public void sucessAoCadastrar(){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Sucesso ao realizar cadastro");
