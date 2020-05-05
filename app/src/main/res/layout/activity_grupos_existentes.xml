@@ -41,4 +41,5 @@
             android:src="@drawable/bg_grupos_ex" />
     </ListView>
 
+    //teste
 </LinearLayout>
