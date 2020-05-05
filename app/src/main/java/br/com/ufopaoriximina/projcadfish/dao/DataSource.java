@@ -1,10 +1,12 @@
 package br.com.ufopaoriximina.projcadfish.dao;
 
+import android.annotation.TargetApi;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.os.Build;
 import android.util.Log;
 
 import br.com.ufopaoriximina.projcadfish.datamodel.DataModelEspecie;
@@ -22,6 +24,32 @@ public class DataSource extends SQLiteOpenHelper {
 
     SQLiteDatabase db;
 
+    @Override
+    public void onOpen(SQLiteDatabase db) {
+        super.onOpen(db);
+        if (!db.isReadOnly()) {
+            setForeignKeyConstraintsEnabled(db);
+        }
+    }
+
+
+    private void setForeignKeyConstraintsEnabled(SQLiteDatabase db) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN) {
+            setForeignKeyConstraintsEnabledPreJellyBean(db);
+        } else {
+            setForeignKeyConstraintsEnabledPostJellyBean(db);
+        }
+    }
+
+    private void setForeignKeyConstraintsEnabledPreJellyBean(SQLiteDatabase db) {
+        db.execSQL("PRAGMA foreign_keys=ON;");
+    }
+
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
+    private void setForeignKeyConstraintsEnabledPostJellyBean(SQLiteDatabase db) {
+        db.setForeignKeyConstraintsEnabled(true);
+    }
+
     public DataSource(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
         db = getWritableDatabase();
@@ -36,7 +64,9 @@ public class DataSource extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+
         try {
+            db.execSQL("PRAGMA foreign_keys=ON;");
             db.execSQL(infoGeral);
             db.execSQL(grupo);
             db.execSQL(perfil);

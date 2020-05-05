@@ -82,6 +82,7 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/opcaoGrupo"
         android:layout_width="fill_parent"
         android:layout_height="88dp"
         android:layout_marginTop="22dp"
@@ -121,6 +122,7 @@
             android:textSize="16dp"></TextView>
 
         <ImageView
+            android:id="@+id/ImagemGrupo"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_alignParentRight="true"
