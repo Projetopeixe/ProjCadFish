@@ -24,9 +24,7 @@ public class GruposExistentes extends AppCompatActivity {
     String mNome[] = {"Amigos da Pesca", "Pescaria"};
     String mCriador[] = {"Criado por Luis", "Criado por Samuel"};
     int images[] = {R.drawable.peixe, R.drawable.peixe};
-    // so our images and other things are set in array
 
-    // now paste some images in drawable
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +36,6 @@ public class GruposExistentes extends AppCompatActivity {
         MyAdapter adapter = new MyAdapter(this, mNome, mCriador, images);
         listView.setAdapter(adapter);
 
-        // now set item click on list view
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -50,7 +47,6 @@ public class GruposExistentes extends AppCompatActivity {
                 }
             }
         });
-        // so item click is done now check list view
     }
 
     class MyAdapter extends ArrayAdapter<String> {
@@ -77,7 +73,6 @@ public class GruposExistentes extends AppCompatActivity {
             TextView myNome = row.findViewById(R.id.textView1);
             TextView myCriador = row.findViewById(R.id.textView2);
 
-            // now set our resources on views
             images.setImageResource(rImgs[position]);
             myNome.setText(rNome[position]);
             myCriador.setText(rCriador[position]);
