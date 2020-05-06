@@ -26,6 +26,7 @@ public class GruposExistentes extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gp_existentes);
+        getSupportActionBar().hide();
 
         listView = findViewById(R.id.listView);
 

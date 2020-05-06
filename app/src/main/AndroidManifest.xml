@@ -15,7 +15,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.GruposExistentes"></activity>
+        <activity android:name=".activity.GruposExistentes">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".activity.OpcaoPescaActivity"></activity>
         <activity android:name=".activity.cadastros_usuarios.cadastro_pescador.Passo5CdPescador" />
         <activity android:name=".activity.cadastros_usuarios.cadastro_pescador.Passo4CdPescador" />

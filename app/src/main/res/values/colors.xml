@@ -4,6 +4,7 @@
     <color type="attr" name="colorPrimaryDark">#F4511E</color>
     <color type="attr" name="colorAccent">#FAAA34</color>
 
+
     <!-- Cores intro Activity -->
     <color type="attr" name="PrimaryIntro"></color>
     <color type="attr" name="PrimaryDarkIntro">#FFFFFF</color>
