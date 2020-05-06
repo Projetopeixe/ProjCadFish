@@ -52,12 +52,12 @@ public class GruposExistentes extends AppCompatActivity {
         String rCriador[];
         int rImgs[];
 
-        MyAdapter(Context c, String rNome[], String rCriador[], int rImgs[]) {
-            super(c, R.layout.row, R.id.textView1, rNome);
-            this.context = context;
-            this.rNome = rNome;
-            this.rCriador = rCriador;
-            this.rImgs = rImgs;
+        MyAdapter(Context c, String Nome[], String Criador[], int Imgs[]) {
+            super(c, R.layout.row, R.id.textView1, Nome);
+            this.context = c;
+            this.rNome = Nome;
+            this.rCriador = Criador;
+            this.rImgs = Imgs;
         }
 
         @NonNull
