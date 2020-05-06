@@ -25,7 +25,7 @@ public class GruposExistentes extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_grupos_existentes);
+        setContentView(R.layout.activity_gp_existentes);
 
         listView = findViewById(R.id.listView);
 
