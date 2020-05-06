@@ -18,7 +18,9 @@
             android:fontFamily="@font/roboto"
             android:text="Grupos Existentes"
             android:textColor="#000000"
-            android:textSize="24dp"></TextView>
+            android:textSize="24dp">
+
+        </TextView>
 
         <ImageView
             android:layout_width="30dp"
