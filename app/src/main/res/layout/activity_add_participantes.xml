@@ -10,7 +10,7 @@
     <pl.droidsonroids.gif.GifImageView
         android:layout_width="329dp"
         android:layout_height="259dp"
-        android:src="@drawable/bg_gp_ex" />
+        android:src="@drawable/bg_add_pt" />
 
     <RelativeLayout
         android:layout_width="fill_parent"
