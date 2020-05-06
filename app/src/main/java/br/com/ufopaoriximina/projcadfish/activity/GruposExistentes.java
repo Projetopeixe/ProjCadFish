@@ -1,5 +1,4 @@
 package br.com.ufopaoriximina.projcadfish.activity;
-
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,11 +10,9 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-
 import br.com.ufopaoriximina.projcadfish.R;
 
 public class GruposExistentes extends AppCompatActivity {
@@ -24,7 +21,6 @@ public class GruposExistentes extends AppCompatActivity {
     String mNome[] = {"Amigos da Pesca", "Pescaria"};
     String mCriador[] = {"Criado por Luis", "Criado por Samuel"};
     int images[] = {R.drawable.peixe, R.drawable.peixe};
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
