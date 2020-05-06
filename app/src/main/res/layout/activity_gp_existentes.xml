@@ -25,6 +25,7 @@
             android:textSize="24dp"></TextView>
 
         <ImageView
+            android:id="@+id/btn_adcionar_grupos"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_alignParentEnd="true"

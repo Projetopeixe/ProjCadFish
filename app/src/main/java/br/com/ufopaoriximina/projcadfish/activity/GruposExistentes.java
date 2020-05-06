@@ -1,5 +1,6 @@
 package br.com.ufopaoriximina.projcadfish.activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,6 +22,7 @@ public class GruposExistentes extends AppCompatActivity {
     String mNome[] = {"Amigos da Pesca", "Pescaria"};
     String mCriador[] = {"Criado por Luis", "Criado por Samuel"};
     int images[] = {R.drawable.peixe, R.drawable.peixe};
+    ImageView addGrupo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +31,13 @@ public class GruposExistentes extends AppCompatActivity {
         getSupportActionBar().hide();
 
         listView = findViewById(R.id.listView);
+        addGrupo = findViewById(R.id.btn_adcionar_grupos);
+        addGrupo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                abrirAddGrupo();
+            }
+        });
 
         MyAdapter adapter = new MyAdapter(this, mNome, mCriador, images);
         listView.setAdapter(adapter);
@@ -45,6 +54,13 @@ public class GruposExistentes extends AppCompatActivity {
             }
         });
     }
+
+    public void abrirAddGrupo(){
+        Intent i = new Intent(getApplicationContext(), AddParticipantes.class);
+        startActivity(i);
+        finish();
+    }
+
 
     class MyAdapter extends ArrayAdapter<String> {
 

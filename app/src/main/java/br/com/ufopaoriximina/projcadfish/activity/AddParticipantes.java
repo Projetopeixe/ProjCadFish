@@ -52,7 +52,7 @@ public class AddParticipantes extends AppCompatActivity {
         int rImgs[];
 
         MyAdapter(Context c, String Nome[], int Imgs[]) {
-            super(c, R.layout.row, R.id.textView1, Nome);
+            super(c, R.layout.row, R.id.nameParticipante, Nome);
             this.context = c;
             this.rNome = Nome;
             this.rImgs = Imgs;
@@ -63,8 +63,8 @@ public class AddParticipantes extends AppCompatActivity {
         public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
             LayoutInflater layoutInflater = (LayoutInflater)getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             View row = layoutInflater.inflate(R.layout.row_participantes, parent, false);
-            ImageView images = row.findViewById(R.id.image);
-            TextView myNome = row.findViewById(R.id.textView1);
+            ImageView images = row.findViewById(R.id.imageParticipante);
+            TextView myNome = row.findViewById(R.id.nameParticipante);
 
             images.setImageResource(rImgs[position]);
             myNome.setText(rNome[position]);
