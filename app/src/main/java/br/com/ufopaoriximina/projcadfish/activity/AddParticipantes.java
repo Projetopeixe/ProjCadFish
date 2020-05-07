@@ -53,7 +53,7 @@ public class AddParticipantes extends AppCompatActivity {
         int rFotos[];
 
         MyAdapter(Context c, String Participante[], int Fotos[]) {
-            super(c, R.layout.row, R.id.nameParticipante, Participante);
+            super(c, R.layout.row_participantes, R.id.nameParticipante, Participante);
             this.context = c;
             this.rParticipante = Participante;
             this.rFotos = Fotos;
