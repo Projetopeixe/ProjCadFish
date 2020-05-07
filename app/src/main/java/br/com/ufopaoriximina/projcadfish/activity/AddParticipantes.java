@@ -28,7 +28,7 @@ public class AddParticipantes extends AppCompatActivity {
         setContentView(R.layout.activity_add_participantes);
         getSupportActionBar().hide();
 
-        listView = findViewById(R.id.listView);
+        listView = findViewById(R.id.listViewAddPt);
 
         MyAdapter adapter = new MyAdapter(this, mParticipante , fotos);
         listView.setAdapter(adapter);

@@ -33,8 +33,8 @@ public class PescaEmGrupo extends AppCompatActivity {
         setContentView(R.layout.activity_pesca_grupo);
         getSupportActionBar().hide();
 
-        listView = findViewById(R.id.listView);
-        addPeixe = findViewById(R.id.btn_adcionar_grupos);
+        listView = findViewById(R.id.listViewPescaGP);
+        addPeixe = findViewById(R.id.btn_add_especie);
 
         PescaEmGrupo.MyAdapter adapter = new MyAdapter(this, mNomePeixe, mPescador, photo );
         listView.setAdapter(adapter);
