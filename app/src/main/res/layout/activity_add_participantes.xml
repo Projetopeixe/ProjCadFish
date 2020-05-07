@@ -25,6 +25,7 @@
             android:textSize="24dp"></TextView>
 
         <ImageView
+            android:id="@+id/btn_add_participantes"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_alignParentEnd="true"
@@ -42,7 +43,7 @@
         android:layout_height="match_parent">
 
         <ListView
-            android:id="@+id/listViewAdd"
+            android:id="@+id/listViewAddPt"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="5sp"/>
