@@ -18,8 +18,9 @@ import br.com.ufopaoriximina.projcadfish.R;
 public class AddParticipantes extends AppCompatActivity {
 
     ListView listView;
-    String mNome[] = {"João Silva", "Mário Souza"};
-    int images[] = {R.drawable.icon_individual, R.drawable.peixe};
+
+    String mParticipante[] = {"João Silva", "Mário Souza"};
+    int fotos[] = {R.drawable.icon_individual, R.drawable.peixe};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +30,7 @@ public class AddParticipantes extends AppCompatActivity {
 
         listView = findViewById(R.id.listView);
 
-        MyAdapter adapter = new MyAdapter(this, mNome , images);
+        MyAdapter adapter = new MyAdapter(this, mParticipante , fotos);
         listView.setAdapter(adapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -48,14 +49,14 @@ public class AddParticipantes extends AppCompatActivity {
     class MyAdapter extends ArrayAdapter<String> {
 
         Context context;
-        String rNome[];
-        int rImgs[];
+        String rParticipante[];
+        int rFotos[];
 
-        MyAdapter(Context c, String Nome[], int Imgs[]) {
-            super(c, R.layout.row, R.id.nameParticipante, Nome);
+        MyAdapter(Context c, String Participante[], int Fotos[]) {
+            super(c, R.layout.row, R.id.nameParticipante, Participante);
             this.context = c;
-            this.rNome = Nome;
-            this.rImgs = Imgs;
+            this.rParticipante = Participante;
+            this.rFotos = Fotos;
         }
 
         @NonNull
@@ -66,8 +67,8 @@ public class AddParticipantes extends AppCompatActivity {
             ImageView images = row.findViewById(R.id.imageParticipante);
             TextView myNome = row.findViewById(R.id.nameParticipante);
 
-            images.setImageResource(rImgs[position]);
-            myNome.setText(rNome[position]);
+            images.setImageResource(rFotos[position]);
+            myNome.setText(rParticipante[position]);
 
             return row;
         }
