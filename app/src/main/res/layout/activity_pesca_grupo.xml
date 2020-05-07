@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <pl.droidsonroids.gif.GifImageView
+        android:layout_width="329dp"
+        android:layout_height="259dp"
+        android:src="@drawable/bg_pesca_grupo" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto"
+            android:text="Espécies Pescadas"
+            android:textColor="#000000"
+            android:textSize="24dp"></TextView>
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="46dp"
+            android:layout_marginRight="66dp"
+            android:foregroundGravity="fill_horizontal|center_vertical|clip_horizontal|center"
+            android:src="@drawable/ic_add_box_black_24dp">
+
+        </ImageView>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ListView
+            android:id="@+id/listViewPescaGP"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="5sp"/>
+
+    </RelativeLayout>
+
+</LinearLayout>
