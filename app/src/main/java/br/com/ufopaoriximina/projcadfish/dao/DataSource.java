@@ -118,6 +118,15 @@ public class DataSource extends SQLiteOpenHelper {
             }while (c.moveToNext());
         }
         return 0;
+    }
 
+    public String logar(String email, String senha){
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor c = db.rawQuery("SELECT * FROM " + DataModelUsuario.getTabelaPerfil() + " WHERE " +
+                DataModelUsuario.getEmail() + "=?  AND " + DataModelUsuario.getSenha() + "=?", new String[]{email, senha});
+        if(c.getCount()>0){
+            return "OK";
+        }
+        return "ERRO";
     }
 }

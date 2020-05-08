@@ -13,9 +13,13 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import br.com.ufopaoriximina.projcadfish.R;
 import br.com.ufopaoriximina.projcadfish.config.Permissoes;
+import br.com.ufopaoriximina.projcadfish.dao.DataSource;
 
 public class LoginActivity extends AppCompatActivity  {
 
@@ -24,16 +28,55 @@ public class LoginActivity extends AppCompatActivity  {
             Manifest.permission.CAMERA, Manifest.permission.ACCESS_FINE_LOCATION,
             Manifest.permission.INTERNET, Manifest.permission.WRITE_EXTERNAL_STORAGE
     };
+    private EditText editEmail, editSenha;
+    private Button logar;
+    DataSource ds;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         getSupportActionBar().hide();
-
+        ds = new DataSource(this);
+        carregarComponentesLogin();
+        logar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                logar();
+            }
+        });
         Permissoes.validarPermissoes(permissoesNecessarias, this, 1);
 
     }
 
+    public void logar(){
+        String email = editEmail.getText().toString();
+        String senha = editSenha.getText().toString();
+        if(!email.isEmpty()){
+            if(!senha.isEmpty()){
+                String res = ds.logar(email, senha);
+
+                if (res.equals("OK")){
+                    Intent i = new Intent(LoginActivity.this, OpcaoPescaActivity.class);
+                    ActivityOptionsCompat activityOptionsCompat = ActivityOptionsCompat.makeCustomAnimation(getApplicationContext()
+                            , R.transition.fade_in, R.transition.fade_out);
+                    ActivityCompat.startActivity(LoginActivity.this, i, activityOptionsCompat.toBundle());
+                    finish();
+                }else{
+                    Toast.makeText(LoginActivity.this, "Erro ao logar", Toast.LENGTH_SHORT).show();
+                }
+
+            }else{
+                Toast.makeText(getApplicationContext(), "Preencha o campo 'SENHA'", Toast.LENGTH_SHORT).show();
+            }
+        }else{
+            Toast.makeText(getApplicationContext(), "Preencha o campo 'EMAIL'", Toast.LENGTH_SHORT).show();
+        }
+    }
+    public void carregarComponentesLogin(){
+        editEmail = findViewById(R.id.edit_text_email);
+        editSenha = findViewById(R.id.edit_text_senha);
+        logar = findViewById(R.id.btn_logar);
+    }
     public void abrirCadastro(View view){
         Intent i = new Intent(LoginActivity.this, UserCadastroActivity.class);
         ActivityOptionsCompat activityOptionsCompat = ActivityOptionsCompat.makeCustomAnimation(getApplicationContext()
