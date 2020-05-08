@@ -122,8 +122,9 @@ public class Passo5CdGuia extends AppCompatActivity {
             String email = dados.getString(DataModelUsuario.getEmail());
             String senha = dados.getString(DataModelUsuario.getSenha());
 
-            usuario = new Usuario(email, senha, convertToByte(fotoUser), 1);
             BDDao bd = new BDDao(this);
+            int idInfo = bd.getLastId(DataModelUsuario.getTabelaInfoGeral());
+            usuario = new Usuario(email, senha, convertToByte(fotoUser), 1, idInfo);
             try {
                 boolean sucesso = bd.salvarDataPerfil(usuario);
                 if(sucesso){

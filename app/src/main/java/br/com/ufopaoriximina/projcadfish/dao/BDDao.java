@@ -64,6 +64,7 @@ public class BDDao extends DataSource{
         dados.put(DataModelUsuario.getSenha(), obj.getSenha());
         dados.put(DataModelUsuario.getFoto(), obj.getFoto());
         dados.put(DataModelUsuario.getTipo(), obj.getTipo());
+        dados.put(DataModelUsuario.getInfoGeralId(), obj.getIdInfoGeral());
 
         sucesso = insert(DataModelUsuario.getTabelaPerfil(), dados);
         return sucesso;
@@ -205,5 +206,7 @@ public class BDDao extends DataSource{
 
         return sucesso;
     }
+
+
 
 }

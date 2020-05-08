@@ -22,9 +22,14 @@ public class DataModelUsuario {
     private final static String cidade = "cidade";
     private final static String foto = "foto";
     private final static String tipo = "tipo";
+    private final static String infoGeralId = "info_geral_cadastros_id";
 
     private static String queryCriarTabelaInfoGeral = "";
     private static String queryCriarTabelaPerfil = "";
+
+    public static String getInfoGeralId() {
+        return infoGeralId;
+    }
 
     //Criar dinamicamente uma Query Sql para criar
     //a tabela Info Geral

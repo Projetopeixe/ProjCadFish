@@ -4,6 +4,7 @@ import android.annotation.TargetApi;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Build;
@@ -104,5 +105,19 @@ public class DataSource extends SQLiteOpenHelper {
         sucesso = db.update(tabela, dados, "id=?", new String[]{Integer.toString(id)}) >0;
 
         return sucesso;
+    }
+
+    public int getLastId(String tabela){
+
+        int id;
+        Cursor c = db.rawQuery("SELECT id FROM "+ tabela + " WHERE id=(SELECT MAX(id) FROM "+ tabela + ");", null);
+        if (c.moveToFirst()){
+            do{
+                id = c.getInt(c.getColumnIndex("id"));
+                return id;
+            }while (c.moveToNext());
+        }
+        return 0;
+
     }
 }

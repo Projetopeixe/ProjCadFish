@@ -15,12 +15,22 @@ public class Usuario {
     private String cidade;
     private byte[] foto;
     private int tipo;
+    private int IdInfoGeral;
 
-    public Usuario(String email, String senha, byte[] foto, int tipo) {
+    public int getIdInfoGeral() {
+        return IdInfoGeral;
+    }
+
+    public void setIdInfoGeral(int idInfoGeral) {
+        IdInfoGeral = idInfoGeral;
+    }
+
+    public Usuario(String email, String senha, byte[] foto, int tipo, int IdInfo) {
         this.email = email;
         this.senha = senha;
         this.foto = foto;
         this.tipo = tipo;
+        this.IdInfoGeral = IdInfo;
     }
 
     public Usuario(String nome, int anosxp, String cpf, String telefone, String cidade, String estado){
