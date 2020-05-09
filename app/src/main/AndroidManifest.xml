@@ -17,14 +17,16 @@
         android:theme="@style/AppTheme">
         <activity android:name=".activity.GruposExistentes"
             android:parentActivityName=".activity.OpcaoPescaActivity">
+
+        </activity>
+        <activity android:name=".activity.AddParticipantes"></activity>
+        <activity android:name=".activity.OpcaoPescaActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.AddParticipantes"></activity>
-        <activity android:name=".activity.OpcaoPescaActivity"></activity>
         <activity android:name=".activity.cadastros_usuarios.cadastro_pescador.Passo5CdPescador" />
         <activity android:name=".activity.cadastros_usuarios.cadastro_pescador.Passo4CdPescador" />
         <activity android:name=".activity.cadastros_usuarios.cadastro_guia.Passo5CdGuia" />
