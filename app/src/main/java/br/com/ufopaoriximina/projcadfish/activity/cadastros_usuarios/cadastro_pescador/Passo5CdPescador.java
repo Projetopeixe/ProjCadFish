@@ -3,22 +3,29 @@ package br.com.ufopaoriximina.projcadfish.activity.cadastros_usuarios.cadastro_p
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.app.ActivityOptionsCompat;
 
 import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import java.io.ByteArrayOutputStream;
+
 import br.com.ufopaoriximina.projcadfish.R;
 import br.com.ufopaoriximina.projcadfish.activity.OpcaoPescaActivity;
 import br.com.ufopaoriximina.projcadfish.activity.UserCadastroActivity;
+import br.com.ufopaoriximina.projcadfish.activity.cadastros_usuarios.cadastro_guia.Passo5CdGuia;
 import br.com.ufopaoriximina.projcadfish.config.Permissoes;
 import br.com.ufopaoriximina.projcadfish.dao.BDDao;
 import br.com.ufopaoriximina.projcadfish.datamodel.DataModelUsuario;
@@ -44,12 +51,6 @@ public class Passo5CdPescador extends AppCompatActivity {
         setContentView(R.layout.activity_register_5);
         getSupportActionBar().hide();
         carregarComponentes();
-        finalizar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finalizarCadastro();
-            }
-        });
         Permissoes.validarPermissoes(permissoesNecessarias, this, 1);
         imagemCamera.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,41 +71,39 @@ public class Passo5CdPescador extends AppCompatActivity {
                 }
             }
         });
+
+        finalizar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finalizarCadastro();
+            }
+        });
     }
 
     public void carregarComponentes(){
         imagemCamera = findViewById(R.id.openCam);
         imagemArmazenamento = findViewById(R.id.openFolders);
         fotoUser = findViewById(R.id.fotoUser);
+        finalizar = findViewById(R.id.btnFinalize);
     }
 
     public void finalizarCadastro(){
         Usuario usuario;
         final Bundle dados = getIntent().getExtras();
-        if(dados != null){
-            String nome = dados.getString(DataModelUsuario.getNome());
-            int exp = dados.getInt(DataModelUsuario.getAnosxp());
-            String cpf = dados.getString(DataModelUsuario.getCpf());
-            String telefone = dados.getString(DataModelUsuario.getTelefone());
-            String city = dados.getString(DataModelUsuario.getCidade());
-            String estado = dados.getString(DataModelUsuario.getEstado());
-            String email = dados.getString(DataModelUsuario.getEmail());
-            String senha = dados.getString(DataModelUsuario.getSenha());
 
-            //usuario = new Usuario(nome, exp, cpf, telefone, city, estado, email, senha, er, 2);
-            BDDao bd = new BDDao(this);
-            try {
-                //boolean sucesso = bd.salvarDataInfoGeral(usuario);
-                //boolean sucesso2 = bd.salvarDataPerfil(usuario);
-                /*if(sucesso){
-                    sucessAoCadastrar();
-                }*/
-            }catch (Exception e){
-                Toast.makeText(getApplicationContext(), "Erro ao cadastrar: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+        String email = dados.getString(DataModelUsuario.getEmail());
+        String senha = dados.getString(DataModelUsuario.getSenha());
+
+        BDDao bd = new BDDao(this);
+        int idInfo = bd.getLastId(DataModelUsuario.getTabelaInfoGeral());
+        usuario = new Usuario(email, senha, convertToByte(fotoUser), 2, idInfo);
+        try {
+            boolean sucesso = bd.salvarDataPerfil(usuario);
+            if(sucesso){
+                sucessAoCadastrar();
             }
-
-        }else{
-            Toast.makeText(getApplicationContext(), "Dados não passaram", Toast.LENGTH_SHORT).show();
+        }catch (Exception e){
+            Toast.makeText(getApplicationContext(), "Erro ao cadastrar: " + e.getMessage(), Toast.LENGTH_SHORT).show();
         }
 
     }
@@ -138,6 +137,14 @@ public class Passo5CdPescador extends AppCompatActivity {
         }
     }
 
+    public byte[] convertToByte(CircleImageView imagem) {
+        BitmapDrawable drawable = (BitmapDrawable) imagem.getDrawable();
+        Bitmap bitmap = drawable.getBitmap();
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
+        byte imagemBytes[] = stream.toByteArray();
+        return imagemBytes;
+    }
     public void sucessAoCadastrar(){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Sucesso ao realizar cadastro");
@@ -154,4 +161,38 @@ public class Passo5CdPescador extends AppCompatActivity {
         builder.create();
         builder.show();
     }
+
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        //Handle the back button
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            checkExit();
+            return true;
+        } else {
+            return super.onKeyDown(keyCode, event);
+        }
+    }
+    private void checkExit()
+    {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Deseja realmente cancelar?")
+                .setCancelable(false)
+                .setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent i = new Intent(getApplicationContext(), UserCadastroActivity.class);
+                        ActivityOptionsCompat activityOptionsCompat = ActivityOptionsCompat.makeCustomAnimation(getApplicationContext()
+                                , R.transition.fade_in, R.transition.fade_out);
+                        ActivityCompat.startActivity(Passo5CdPescador.this, i, activityOptionsCompat.toBundle());
+                        finish();
+                    }
+                })
+                .setNegativeButton("Não", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+        AlertDialog alert = builder.create();
+        alert.show();
+    }
+
 }

@@ -58,7 +58,6 @@ public class Passo1CdGuia extends AppCompatActivity {
                 Intent i = new Intent(getApplicationContext(), Passo2CdGuia.class);
                 i.putExtra(DataModelUsuario.getNome(), nomeString);
                 i.putExtra(DataModelUsuario.getAnosxp(), expInt);
-
                 ActivityOptionsCompat activityOptionsCompat = ActivityOptionsCompat.makeCustomAnimation(getApplicationContext()
                         , R.transition.fade_in, R.transition.fade_out);
                 ActivityCompat.startActivity(Passo1CdGuia.this, i, activityOptionsCompat.toBundle());
