@@ -15,7 +15,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.GruposExistentes">
+        <activity android:name=".activity.GruposExistentes"
+            android:parentActivityName=".activity.OpcaoPescaActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name=".activity.AddParticipantes"></activity>
         <activity android:name=".activity.OpcaoPescaActivity"></activity>
@@ -26,11 +32,7 @@
 
         </activity>
         <activity android:name=".activity.SplashActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".activity.cadastros_usuarios.cadastro_pescador.Passo3CdPescador"

@@ -2,6 +2,7 @@ package br.com.ufopaoriximina.projcadfish.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,9 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.app.ActivityOptionsCompat;
+
 import br.com.ufopaoriximina.projcadfish.R;
 
 public class GruposExistentes extends AppCompatActivity {
@@ -23,6 +27,7 @@ public class GruposExistentes extends AppCompatActivity {
     String mCriador[] = {"Criado por Luis", "Criado por Samuel"};
     int images[] = {R.drawable.peixe, R.drawable.peixe};
     ImageView addGrupo;
+    ImageView returnBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +41,13 @@ public class GruposExistentes extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 abrirAddGrupo();
+            }
+        });
+        returnBtn = findViewById(R.id.btn_retornar_opcao_pesca);
+        returnBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                abrirOpcaoPesca();
             }
         });
 
@@ -91,6 +103,28 @@ public class GruposExistentes extends AppCompatActivity {
             myCriador.setText(rCriador[position]);
 
             return row;
+        }
+    }
+
+    public void abrirOpcaoPesca(){
+        Intent i = new Intent(getApplicationContext(), OpcaoPescaActivity.class);
+        ActivityOptionsCompat activityOptionsCompat = ActivityOptionsCompat.makeCustomAnimation(getApplicationContext()
+                , R.transition.fade_in, R.transition.fade_out);
+        ActivityCompat.startActivity(GruposExistentes.this, i, activityOptionsCompat.toBundle());
+        finish();
+    }
+
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        //Handle the back button
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            Intent i = new Intent(getApplicationContext(), OpcaoPescaActivity.class);
+            ActivityOptionsCompat activityOptionsCompat = ActivityOptionsCompat.makeCustomAnimation(getApplicationContext()
+                    , R.transition.fade_in, R.transition.fade_out);
+            ActivityCompat.startActivity(GruposExistentes.this, i, activityOptionsCompat.toBundle());
+            finish();
+            return true;
+        } else {
+            return super.onKeyDown(keyCode, event);
         }
     }
 
