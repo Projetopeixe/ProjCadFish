@@ -9,6 +9,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,6 +18,7 @@ import android.widget.Toast;
 
 import br.com.ufopaoriximina.projcadfish.R;
 import br.com.ufopaoriximina.projcadfish.activity.OpcaoPescaActivity;
+import br.com.ufopaoriximina.projcadfish.activity.UserCadastroActivity;
 import br.com.ufopaoriximina.projcadfish.dao.BDDao;
 import br.com.ufopaoriximina.projcadfish.datamodel.DataModelEspecie;
 import br.com.ufopaoriximina.projcadfish.datamodel.DataModelUsuario;
@@ -56,7 +58,7 @@ public class Passo3CdGuia extends AppCompatActivity {
     }
 
     public void cancelar(){
-        finish();
+        checkExit();
     }
 
     public void abrirProximoPasso(){
@@ -109,5 +111,38 @@ public class Passo3CdGuia extends AppCompatActivity {
         });
         builder.create();
         builder.show();
+    }
+
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        //Handle the back button
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            checkExit();
+            return true;
+        } else {
+            return super.onKeyDown(keyCode, event);
+        }
+    }
+    private void checkExit()
+    {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Deseja realmente cancelar?")
+                .setCancelable(false)
+                .setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent i = new Intent(getApplicationContext(), UserCadastroActivity.class);
+                        ActivityOptionsCompat activityOptionsCompat = ActivityOptionsCompat.makeCustomAnimation(getApplicationContext()
+                                , R.transition.fade_in, R.transition.fade_out);
+                        ActivityCompat.startActivity(Passo3CdGuia.this, i, activityOptionsCompat.toBundle());
+                        finish();
+                    }
+                })
+                .setNegativeButton("Não", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+        AlertDialog alert = builder.create();
+        alert.show();
     }
 }

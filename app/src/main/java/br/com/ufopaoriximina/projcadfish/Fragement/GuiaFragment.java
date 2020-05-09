@@ -33,7 +33,7 @@ public class GuiaFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_guia2, container, false);
+        final View view = inflater.inflate(R.layout.fragment_guia2, container, false);
 
         btStart = view.findViewById(R.id.iniciarCadGuia);
         btStart.setOnClickListener(new View.OnClickListener() {
@@ -43,8 +43,7 @@ public class GuiaFragment extends Fragment {
                 ActivityOptionsCompat activityOptionsCompat = ActivityOptionsCompat.makeCustomAnimation(getContext()
                         , R.transition.fade_in, R.transition.fade_out);
                 ActivityCompat.startActivity(getContext(), i, activityOptionsCompat.toBundle());
-
-
+                getActivity().finish();
             }
         });
 

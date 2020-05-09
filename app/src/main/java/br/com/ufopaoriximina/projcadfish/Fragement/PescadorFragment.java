@@ -43,6 +43,7 @@ public class PescadorFragment extends Fragment {
                 ActivityOptionsCompat activityOptionsCompat = ActivityOptionsCompat.makeCustomAnimation(getContext()
                         , R.transition.fade_in, R.transition.fade_out);
                 ActivityCompat.startActivity(getContext(), i, activityOptionsCompat.toBundle());
+                getActivity().finish();
 
             }
         });
