@@ -55,7 +55,6 @@
             android:theme="@style/IntroActivity" />
         <activity
             android:name=".activity.UserCadastroActivity"
-            android:parentActivityName=".activity.LoginActivity"
             android:theme="@style/MainActivity" />
 
         <meta-data
