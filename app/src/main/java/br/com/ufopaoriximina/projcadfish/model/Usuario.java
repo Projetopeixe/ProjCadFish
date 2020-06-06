@@ -25,6 +25,8 @@ public class Usuario {
         IdInfoGeral = idInfoGeral;
     }
 
+    public Usuario(){}
+
     public Usuario(String email, String senha, byte[] foto, int tipo, int IdInfo) {
         this.email = email;
         this.senha = senha;
