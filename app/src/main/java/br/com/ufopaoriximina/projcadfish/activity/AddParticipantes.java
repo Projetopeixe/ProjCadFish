@@ -45,6 +45,7 @@ public class AddParticipantes extends AppCompatActivity {
 
         String[] valores = new String[mParticipante.size()];
         mParticipante.toArray(valores);
+
         //adapter
 
         listView = findViewById(R.id.listViewAddPt);
