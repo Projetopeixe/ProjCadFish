@@ -14,6 +14,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.ListAdapter;
 
 import java.util.List;
 
@@ -41,6 +42,11 @@ public class AddParticipantes extends AppCompatActivity {
 
         UsuarioCtlr usuarioCtlr = new UsuarioCtlr(new DataSource(this));
         usuariolist = usuarioCtlr.getListaUsuarioCtrl();
+
+        //adapter
+        //ArrayAdapter<Usuario> adapter1 = new ArrayAdapter<Usuario>(this, android.R.layout.simple_list_item_1);
+        //listView = findViewById(R.id.listViewAddPt);
+        //listView.setAdapter(adapter1);
 
         listView = findViewById(R.id.listViewAddPt);
 
