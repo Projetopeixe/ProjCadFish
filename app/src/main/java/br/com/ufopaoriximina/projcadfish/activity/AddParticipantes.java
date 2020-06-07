@@ -14,6 +14,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import br.com.ufopaoriximina.projcadfish.R;
+import br.com.ufopaoriximina.projcadfish.controller.UsuarioCtlr;
+import br.com.ufopaoriximina.projcadfish.dao.DataSource;
+import br.com.ufopaoriximina.projcadfish.datamodel.DataModelUsuario;
 
 public class AddParticipantes extends AppCompatActivity {
 
@@ -27,6 +30,10 @@ public class AddParticipantes extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_participantes);
         getSupportActionBar().hide();
+
+        // Buscar os participantes do banco
+
+        //UsuarioCtlr usuarioCtlr = new UsuarioCtlr(DataSource.g) falta completar
 
         listView = findViewById(R.id.listViewAddPt);
 
@@ -71,6 +78,7 @@ public class AddParticipantes extends AppCompatActivity {
             myNome.setText(rParticipante[position]);
 
             return row;
+            
         }
     }
 
