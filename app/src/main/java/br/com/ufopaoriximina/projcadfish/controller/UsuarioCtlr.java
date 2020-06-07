@@ -19,6 +19,6 @@ public class UsuarioCtlr {
     }
 
     public List<Usuario> getListaUsuarioCtrl(){
-        return this.participanteDAO.getListaParticipanteDAO();
+       return this.participanteDAO.getListaParticipanteDAO();
     }
 }
