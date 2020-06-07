@@ -131,7 +131,7 @@ public class DataSource extends SQLiteOpenHelper {
             do{
                 nome = cursor.getString(cursor.getColumnIndex(DataModelUsuario.getNome()));
                 lista.add(nome);
-                return lista;
+                //return lista;
             }while (cursor.moveToNext());
         }
         return lista;
