@@ -1,6 +1,7 @@
 package br.com.ufopaoriximina.projcadfish.activity;
 import android.content.Context;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,15 +14,20 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.List;
+
 import br.com.ufopaoriximina.projcadfish.R;
 import br.com.ufopaoriximina.projcadfish.controller.UsuarioCtlr;
+import br.com.ufopaoriximina.projcadfish.dao.BDDao;
 import br.com.ufopaoriximina.projcadfish.dao.DataSource;
 import br.com.ufopaoriximina.projcadfish.datamodel.DataModelUsuario;
+import br.com.ufopaoriximina.projcadfish.model.Usuario;
 
 public class AddParticipantes extends AppCompatActivity {
 
     ListView listView;
-
+    private List<Usuario> usuariolist;
     String mParticipante[] = {"João Silva", "Mário Souza"};
     int fotos[] = {R.drawable.icon_individual, R.drawable.peixe};
 
@@ -33,7 +39,8 @@ public class AddParticipantes extends AppCompatActivity {
 
         // Buscar os participantes do banco
 
-        //UsuarioCtlr usuarioCtlr = new UsuarioCtlr(DataSource.g) falta completar
+        UsuarioCtlr usuarioCtlr = new UsuarioCtlr(new DataSource(this));
+        usuariolist = usuarioCtlr.getListaUsuarioCtrl();
 
         listView = findViewById(R.id.listViewAddPt);
 
