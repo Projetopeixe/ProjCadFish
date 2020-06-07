@@ -10,6 +10,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Build;
 import android.util.Log;
 
+import java.util.ArrayList;
+
 import br.com.ufopaoriximina.projcadfish.datamodel.DataModelEspecie;
 import br.com.ufopaoriximina.projcadfish.datamodel.DataModelGrupo;
 import br.com.ufopaoriximina.projcadfish.datamodel.DataModelGrupoPerfil;
@@ -120,6 +122,20 @@ public class DataSource extends SQLiteOpenHelper {
         return 0;
     }
 
+    public ArrayList<String> usuarios(String tabela){
+        SQLiteDatabase db = getReadableDatabase();
+        String nome;
+        Cursor cursor = db.rawQuery("SELECT nome FROM " + tabela, new String[]{});
+        ArrayList<String> lista = new ArrayList<>();
+        if (cursor.moveToFirst()){
+            do{
+                nome = cursor.getString(cursor.getColumnIndex(DataModelUsuario.getNome()));
+                lista.add(nome);
+                return lista;
+            }while (cursor.moveToNext());
+        }
+        return lista;
+    }
     public String logar(String email, String senha){
         SQLiteDatabase db = getReadableDatabase();
         Cursor c = db.rawQuery("SELECT * FROM " + DataModelUsuario.getTabelaPerfil() + " WHERE " +

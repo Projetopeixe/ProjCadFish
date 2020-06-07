@@ -16,6 +16,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.ListAdapter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import br.com.ufopaoriximina.projcadfish.R;
@@ -28,9 +29,8 @@ import br.com.ufopaoriximina.projcadfish.model.Usuario;
 public class AddParticipantes extends AppCompatActivity {
 
     ListView listView;
-    private List<Usuario> usuariolist;
-    String mParticipante[] = {"João Silva", "Mário Souza"};
-    int fotos[] = {R.drawable.icon_individual, R.drawable.peixe};
+    ArrayList<String> mParticipante = new ArrayList<>();
+    int fotos[] = {R.drawable.icon_individual, R.drawable.peixe, R.drawable.icon_grupo, R.drawable.icon_grupo};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,17 +40,16 @@ public class AddParticipantes extends AppCompatActivity {
 
         // Buscar os participantes do banco
 
-        UsuarioCtlr usuarioCtlr = new UsuarioCtlr(new DataSource(this));
-        usuariolist = usuarioCtlr.getListaUsuarioCtrl();
+        DataSource ds = new DataSource(this);
+        mParticipante = ds.usuarios(DataModelUsuario.getTabelaInfoGeral());
 
+        String[] valores = new String[mParticipante.size()];
+        mParticipante.toArray(valores);
         //adapter
-        //ArrayAdapter<Usuario> adapter1 = new ArrayAdapter<Usuario>(this, android.R.layout.simple_list_item_1);
-        //listView = findViewById(R.id.listViewAddPt);
-        //listView.setAdapter(adapter1);
 
         listView = findViewById(R.id.listViewAddPt);
 
-        MyAdapter adapter = new MyAdapter(this, mParticipante , fotos);
+        MyAdapter adapter = new MyAdapter(this, valores , fotos);
         listView.setAdapter(adapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -72,7 +71,7 @@ public class AddParticipantes extends AppCompatActivity {
         String rParticipante[];
         int rFotos[];
 
-        MyAdapter(Context c, String Participante[], int Fotos[]) {
+        MyAdapter(Context c, String[] Participante, int Fotos[]) {
             super(c, R.layout.row_participantes, R.id.nameParticipante, Participante);
             this.context = c;
             this.rParticipante = Participante;
