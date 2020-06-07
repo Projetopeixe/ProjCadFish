@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:fillViewport="true"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+    
+
+<LinearLayout 
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -46,9 +53,11 @@
         <ListView
             android:id="@+id/listViewAddPt"
             android:layout_width="match_parent"
-            android:layout_height="193dp"
-            android:padding="5sp"
-            android:layout_marginBottom="10dp"/>
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="10dp"
+            android:padding="5sp" />
 
     </RelativeLayout>
 
@@ -65,4 +74,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/listViewAddPt" />
 
+
 </LinearLayout>
+</ScrollView>
