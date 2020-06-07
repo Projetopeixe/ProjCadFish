@@ -41,7 +41,7 @@ public class AddParticipantes extends AppCompatActivity {
         // Buscar os participantes do banco
 
         DataSource ds = new DataSource(this);
-        mParticipante = ds.usuarios(DataModelUsuario.getTabelaInfoGeral());
+        mParticipante = ds.nomesUsuarios(DataModelUsuario.getTabelaInfoGeral());
 
         String[] valores = new String[mParticipante.size()];
         mParticipante.toArray(valores);

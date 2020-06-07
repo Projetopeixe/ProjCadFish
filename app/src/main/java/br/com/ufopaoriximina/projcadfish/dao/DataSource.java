@@ -122,7 +122,7 @@ public class DataSource extends SQLiteOpenHelper {
         return 0;
     }
 
-    public ArrayList<String> usuarios(String tabela){
+    public ArrayList<String> nomesUsuarios(String tabela){
         SQLiteDatabase db = getReadableDatabase();
         String nome;
         Cursor cursor = db.rawQuery("SELECT nome FROM " + tabela, new String[]{});
@@ -131,7 +131,9 @@ public class DataSource extends SQLiteOpenHelper {
             do{
                 nome = cursor.getString(cursor.getColumnIndex(DataModelUsuario.getNome()));
                 lista.add(nome);
-                //return lista;
+                if(cursor.isLast()){
+                    return lista;
+                }
             }while (cursor.moveToNext());
         }
         return lista;
