@@ -3,7 +3,6 @@ package br.com.ufopaoriximina.projcadfish.dao;
 import android.annotation.TargetApi;
 import android.content.ContentValues;
 import android.content.Context;
-import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -138,6 +137,24 @@ public class DataSource extends SQLiteOpenHelper {
         }
         return lista;
     }
+
+    public ArrayList<byte> fotosUsuarios(byte tabela){
+        SQLiteDatabase db = getReadableDatabase();
+        byte foto;
+        Cursor cursor = db.rawQuery("SELECT foto FROM" + tabela, new byte[]);
+        ArrayList<byte> listaFt = new ArrayList<>();
+        if (cursor.moveToFirst()){
+            do {
+                foto = cursor.getBlob(cursor.getColumnIndex(DataModelUsuario.getFoto()));
+                listaFt.add(foto);
+                if (cursor.isLast()){
+                    return listaFt;
+                }
+            }while (cursor.moveToNext());
+        }
+        return listaFt;
+    }
+
     public String logar(String email, String senha){
         SQLiteDatabase db = getReadableDatabase();
         Cursor c = db.rawQuery("SELECT * FROM " + DataModelUsuario.getTabelaPerfil() + " WHERE " +
