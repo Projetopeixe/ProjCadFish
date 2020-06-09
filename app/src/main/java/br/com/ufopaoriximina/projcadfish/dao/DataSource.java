@@ -138,17 +138,17 @@ public class DataSource extends SQLiteOpenHelper {
         return lista;
     }
 
-    public ArrayList<byte> fotosUsuarios(byte tabela){
+    public ArrayList<byte[]> fotosUsuarios(String tabela){
         SQLiteDatabase db = getReadableDatabase();
-        byte foto;
-        Cursor cursor = db.rawQuery("SELECT foto FROM" + tabela, new byte[]);
-        ArrayList<byte> listaFt = new ArrayList<>();
+        byte[] foto;
+        Cursor cursor = db.rawQuery("SELECT foto FROM " + tabela, null);
+        ArrayList<byte[]> listaFt = new ArrayList<>();
         if (cursor.moveToFirst()){
             do {
                 foto = cursor.getBlob(cursor.getColumnIndex(DataModelUsuario.getFoto()));
-                listaFt.add(foto);
-                if (cursor.isLast()){
-                    return listaFt;
+                 if (cursor.isLast()){
+                     listaFt.add(foto);
+                     return listaFt;
                 }
             }while (cursor.moveToNext());
         }

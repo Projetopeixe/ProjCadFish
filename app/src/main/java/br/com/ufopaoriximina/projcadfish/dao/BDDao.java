@@ -3,6 +3,7 @@ package br.com.ufopaoriximina.projcadfish.dao;
 import android.content.ContentValues;
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.provider.ContactsContract;
 import android.widget.GridLayout;
@@ -26,6 +27,11 @@ public class BDDao extends DataSource{
     ContentValues dados;
     public BDDao(Context context) {
         super(context);
+    }
+
+    public Bitmap converteByteArrayToBitmap(byte[] imagem){
+        Bitmap bitmap = BitmapFactory.decodeByteArray(imagem, 0, imagem.length);
+        return bitmap;
     }
 
     public byte[] convertCircleBitmapToByteArray(Bitmap imagem){

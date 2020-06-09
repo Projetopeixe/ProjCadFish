@@ -1,5 +1,8 @@
 package br.com.ufopaoriximina.projcadfish.activity;
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.view.LayoutInflater;
@@ -30,7 +33,7 @@ public class AddParticipantes extends AppCompatActivity {
 
     ListView listView;
     ArrayList<String> mParticipante = new ArrayList<>();
-    int fotos[] = {R.drawable.icon_individual, R.drawable.peixe, R.drawable.icon_grupo, R.drawable.icon_grupo};
+    ArrayList<Drawable> fotos = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +46,16 @@ public class AddParticipantes extends AppCompatActivity {
         DataSource ds = new DataSource(this);
         mParticipante = ds.nomesUsuarios(DataModelUsuario.getTabelaInfoGeral());
 
+        ArrayList<byte[]> fotsBd = new ArrayList<>();
+        fotsBd = ds.fotosUsuarios(DataModelUsuario.getTabelaPerfil());
+        for (byte[] i : fotsBd){
+            BDDao conv = new BDDao(this);
+            Bitmap imagBitmap = conv.converteByteArrayToBitmap(i);
+            Drawable d = new BitmapDrawable(getResources(), imagBitmap);
+            fotos.add(d);
+        }
+        Drawable[] valoresImg = new Drawable[fotos.size()];
+        fotos.toArray(valoresImg);
         String[] valores = new String[mParticipante.size()];
         mParticipante.toArray(valores);
 
@@ -50,7 +63,7 @@ public class AddParticipantes extends AppCompatActivity {
 
         listView = findViewById(R.id.listViewAddPt);
 
-        MyAdapter adapter = new MyAdapter(this, valores , fotos);
+        MyAdapter adapter = new MyAdapter(this, valores , valoresImg);
         listView.setAdapter(adapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -70,9 +83,9 @@ public class AddParticipantes extends AppCompatActivity {
 
         Context context;
         String rParticipante[];
-        int rFotos[];
+        Drawable rFotos[];
 
-        MyAdapter(Context c, String[] Participante, int Fotos[]) {
+        MyAdapter(Context c, String[] Participante, Drawable[] Fotos) {
             super(c, R.layout.row_participantes, R.id.nameParticipante, Participante);
             this.context = c;
             this.rParticipante = Participante;
@@ -87,7 +100,7 @@ public class AddParticipantes extends AppCompatActivity {
             ImageView images = row.findViewById(R.id.imageParticipante);
             TextView myNome = row.findViewById(R.id.nameParticipante);
 
-            images.setImageResource(rFotos[position]);
+            images.setImageDrawable(rFotos[position]);
             myNome.setText(rParticipante[position]);
 
             return row;
