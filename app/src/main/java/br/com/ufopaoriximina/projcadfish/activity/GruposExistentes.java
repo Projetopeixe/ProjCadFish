@@ -1,7 +1,11 @@
 package br.com.ufopaoriximina.projcadfish.activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,13 +22,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.app.ActivityOptionsCompat;
 
+import java.util.ArrayList;
+
 import br.com.ufopaoriximina.projcadfish.R;
+import br.com.ufopaoriximina.projcadfish.dao.BDDao;
+import br.com.ufopaoriximina.projcadfish.dao.DataSource;
+import br.com.ufopaoriximina.projcadfish.datamodel.DataModelGrupo;
 
 public class GruposExistentes extends AppCompatActivity {
 
     ListView listView;
-    String mNome[] = {};
-    int images[] = {};
+    ArrayList<String> mNome= new ArrayList<>();
+    ArrayList<Drawable> images = new ArrayList<>();
     ImageView addGrupo;
     ImageView returnBtn;
     @Override
@@ -32,6 +41,23 @@ public class GruposExistentes extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gp_existentes);
         getSupportActionBar().hide();
+
+        //Buscar os grupos do banco;
+        DataSource ds = new DataSource(this);
+        mNome = ds.getNomesGrupos(DataModelGrupo.getTabelaGrupo());
+        String[] valoresNome = new String[mNome.size()];
+        mNome.toArray(valoresNome);
+
+        ArrayList<byte[]> fotsGpBd = new ArrayList<>();
+        fotsGpBd = ds.getFotosGrupos(DataModelGrupo.getTabelaGrupo());
+        for (byte[] i: fotsGpBd){
+            BDDao conv = new BDDao(this);
+            Bitmap imagBitmap = conv.converteByteArrayToBitmap(i);
+            Drawable d = new BitmapDrawable(getResources(), imagBitmap);
+            images.add(d);
+        }
+        Drawable[] valoresImg = new Drawable[images.size()];
+        images.toArray(valoresImg);
 
         listView = findViewById(R.id.listView);
         addGrupo = findViewById(R.id.btn_adcionar_grupos);
@@ -49,7 +75,7 @@ public class GruposExistentes extends AppCompatActivity {
             }
         });
 
-        MyAdapter adapter = new MyAdapter(this, mNome,  images);
+        MyAdapter adapter = new MyAdapter(this, valoresNome,  valoresImg);
         listView.setAdapter(adapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -76,9 +102,9 @@ public class GruposExistentes extends AppCompatActivity {
 
         Context context;
         String rNome[];
-        int rImgs[];
+        Drawable rImgs[];
 
-        MyAdapter(Context c, String Nome[],  int Imgs[]) {
+        MyAdapter(Context c, String Nome[],  Drawable Imgs[]) {
             super(c, R.layout.row, R.id.textView1, Nome);
             this.context = c;
             this.rNome = Nome;
@@ -92,10 +118,8 @@ public class GruposExistentes extends AppCompatActivity {
             View row = layoutInflater.inflate(R.layout.row, parent, false);
             ImageView images = row.findViewById(R.id.image);
             TextView myNome = row.findViewById(R.id.textView1);
-
-            images.setImageResource(rImgs[position]);
+            images.setImageDrawable(rImgs[position]);
             myNome.setText(rNome[position]);
-
             return row;
         }
     }
