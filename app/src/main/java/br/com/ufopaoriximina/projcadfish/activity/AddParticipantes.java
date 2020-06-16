@@ -99,7 +99,6 @@ public class AddParticipantes extends AppCompatActivity {
             View row = layoutInflater.inflate(R.layout.row_participantes, parent, false);
             ImageView images = row.findViewById(R.id.imageParticipante);
             TextView myNome = row.findViewById(R.id.nameParticipante);
-
             images.setImageDrawable(rFotos[position]);
             myNome.setText(rParticipante[position]);
 

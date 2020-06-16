@@ -6,7 +6,6 @@
     android:fillViewport="true"
     android:layout_height="match_parent"
     android:layout_width="match_parent">
-    
 
 <LinearLayout 
     android:layout_width="match_parent"
@@ -52,8 +51,8 @@
 
         <ListView
             android:id="@+id/listViewAddPt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="0dp"
             android:layout_marginBottom="10dp"
@@ -64,7 +63,7 @@
     <Button
         android:id="@+id/btnCancel"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_gravity="center"
         android:background="@drawable/button_back_register"
         android:text="CONTINUAR"
