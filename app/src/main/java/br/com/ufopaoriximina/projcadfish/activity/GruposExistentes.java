@@ -5,7 +5,6 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,15 +14,12 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.app.ActivityOptionsCompat;
-
 import java.util.ArrayList;
-
 import br.com.ufopaoriximina.projcadfish.R;
 import br.com.ufopaoriximina.projcadfish.dao.BDDao;
 import br.com.ufopaoriximina.projcadfish.dao.DataSource;
@@ -81,12 +77,11 @@ public class GruposExistentes extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if (position ==  0) {
-                    Toast.makeText(GruposExistentes.this, "Criador do Grupo", Toast.LENGTH_SHORT).show();
-                }
-                if (position ==  0) {
-                    Toast.makeText(GruposExistentes.this, "Criador do Grupo", Toast.LENGTH_SHORT).show();
-                }
+                Intent i = new Intent(getApplicationContext(), GrupoAberto.class);
+                ActivityOptionsCompat activityOptionsCompat = ActivityOptionsCompat.makeCustomAnimation(getApplicationContext()
+                        , R.transition.fade_in, R.transition.fade_out);
+                ActivityCompat.startActivity(GruposExistentes.this, i, activityOptionsCompat.toBundle());
+                finish();
             }
         });
     }

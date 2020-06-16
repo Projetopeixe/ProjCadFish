@@ -1,7 +1,9 @@
 package br.com.ufopaoriximina.projcadfish.activity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +17,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.app.ActivityOptionsCompat;
 
 import br.com.ufopaoriximina.projcadfish.R;
 
@@ -74,6 +78,19 @@ public class GrupoAberto extends AppCompatActivity {
             myNome.setText(rIntegrante[position]);
 
             return row;
+        }
+    }
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        //Handle the back button
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            Intent i = new Intent(getApplicationContext(), OpcaoPescaActivity.class);
+            ActivityOptionsCompat activityOptionsCompat = ActivityOptionsCompat.makeCustomAnimation(getApplicationContext()
+                    , R.transition.fade_in, R.transition.fade_out);
+            ActivityCompat.startActivity(GrupoAberto.this, i, activityOptionsCompat.toBundle());
+            finish();
+            return true;
+        } else {
+            return super.onKeyDown(keyCode, event);
         }
     }
 
