@@ -108,7 +108,8 @@
                 android:id="@+id/listView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:padding="5sp">
+                android:padding="5sp"
+                android:divider="@drawable/listdivider">
 
 
             </ListView>
