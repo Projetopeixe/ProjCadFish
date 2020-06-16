@@ -23,12 +23,10 @@ import br.com.ufopaoriximina.projcadfish.R;
 public class GruposExistentes extends AppCompatActivity {
 
     ListView listView;
-    String mNome[] = {"Amigos da Pesca", "Pescaria"};
-    String mCriador[] = {"Criado por Luis", "Criado por Samuel"};
-    int images[] = {R.drawable.peixe, R.drawable.peixe};
+    String mNome[] = {};
+    int images[] = {};
     ImageView addGrupo;
     ImageView returnBtn;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,7 +49,7 @@ public class GruposExistentes extends AppCompatActivity {
             }
         });
 
-        MyAdapter adapter = new MyAdapter(this, mNome, mCriador, images);
+        MyAdapter adapter = new MyAdapter(this, mNome,  images);
         listView.setAdapter(adapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -78,14 +76,12 @@ public class GruposExistentes extends AppCompatActivity {
 
         Context context;
         String rNome[];
-        String rCriador[];
         int rImgs[];
 
-        MyAdapter(Context c, String Nome[], String Criador[], int Imgs[]) {
+        MyAdapter(Context c, String Nome[],  int Imgs[]) {
             super(c, R.layout.row, R.id.textView1, Nome);
             this.context = c;
             this.rNome = Nome;
-            this.rCriador = Criador;
             this.rImgs = Imgs;
         }
 
@@ -96,11 +92,9 @@ public class GruposExistentes extends AppCompatActivity {
             View row = layoutInflater.inflate(R.layout.row, parent, false);
             ImageView images = row.findViewById(R.id.image);
             TextView myNome = row.findViewById(R.id.textView1);
-            TextView myCriador = row.findViewById(R.id.textView2);
 
             images.setImageResource(rImgs[position]);
             myNome.setText(rNome[position]);
-            myCriador.setText(rCriador[position]);
 
             return row;
         }

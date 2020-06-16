@@ -7,6 +7,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Build;
+import android.provider.ContactsContract;
 import android.util.Log;
 
 import java.util.ArrayList;
@@ -121,6 +122,24 @@ public class DataSource extends SQLiteOpenHelper {
         return 0;
     }
 
+    public ArrayList<String> getNomesGrupos(String tabela){
+        SQLiteDatabase db = getReadableDatabase();
+        String nomeGp;
+        Cursor cursor = db.rawQuery("SELECT nome FROM " + tabela, new String[]{});
+        ArrayList<String> lista = new ArrayList<>();
+        if(cursor.moveToFirst()){
+            do{
+                nomeGp = cursor.getString(cursor.getColumnIndex(DataModelGrupo.getNome()));
+                lista.add(nomeGp);
+                if(cursor.isLast()){
+                    return lista;
+                }
+            }while (cursor.moveToNext());
+        }
+        return lista;
+    }
+
+
     public ArrayList<String> nomesUsuarios(String tabela){
         SQLiteDatabase db = getReadableDatabase();
         String nome;
@@ -155,6 +174,22 @@ public class DataSource extends SQLiteOpenHelper {
         return listaFt;
     }
 
+    public ArrayList<byte[]> getFotosGrupos(String tabela){
+        SQLiteDatabase db = getReadableDatabase();
+        byte[] foto;
+        Cursor cursor = db.rawQuery("SELECT foto FROM " + tabela, null);
+        ArrayList<byte[]> listaFoto = new ArrayList<>();
+        if(cursor.moveToFirst()){
+            do {
+                foto = cursor.getBlob(cursor.getColumnIndex(DataModelGrupo.getFoto()));
+                listaFoto.add(foto);
+                if(cursor.isLast()){
+                    return listaFoto;
+                }
+            }while (cursor.moveToNext());
+        }
+        return listaFoto;
+    }
     public String logar(String email, String senha){
         SQLiteDatabase db = getReadableDatabase();
         Cursor c = db.rawQuery("SELECT * FROM " + DataModelUsuario.getTabelaPerfil() + " WHERE " +
