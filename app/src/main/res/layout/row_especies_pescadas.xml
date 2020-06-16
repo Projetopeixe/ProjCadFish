@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout
+    android:padding="16dp"
+    android:orientation="horizontal"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_height="75dp"
+        android:layout_width="75dp"
+        android:id="@+id/imagePeixe"
+        android:src="@mipmap/ic_launcher"
+        />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_margin="20dp">
+
+        <TextView
+            android:id="@+id/nameEspecie"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:elevation="2sp"
+            android:ellipsize="marquee"
+            android:fontFamily="@font/cherry_cream_soda"
+            android:text="Nome do Peixe"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="#0C0B0B"
+            android:textSize="20sp"
+            android:typeface="serif" />
+
+    </LinearLayout>
+
+</LinearLayout>
