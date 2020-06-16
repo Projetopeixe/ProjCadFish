@@ -146,8 +146,8 @@ public class DataSource extends SQLiteOpenHelper {
         if (cursor.moveToFirst()){
             do {
                 foto = cursor.getBlob(cursor.getColumnIndex(DataModelUsuario.getFoto()));
+                listaFt.add(foto);
                  if (cursor.isLast()){
-                     listaFt.add(foto);
                      return listaFt;
                 }
             }while (cursor.moveToNext());
