@@ -7,6 +7,7 @@ import androidx.core.app.ActivityOptionsCompat;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -19,23 +20,32 @@ import br.com.ufopaoriximina.projcadfish.R;
 
 public class OpcaoPescaActivity extends AppCompatActivity {
 
-    ImageView imageView;
-    ImageView menu;
+    ImageView opcaoGrupo;
+    ImageView opcaoIndividual;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_opcao_pesca);
         carregarComponentesOpPesca();
-        imageView.setOnClickListener(new View.OnClickListener() {
+        opcaoIndividual.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                abrirLIst();
+                abrirListPescaIndividual();
+            }
+        });
+        opcaoGrupo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                abrirListGrupo();
             }
         });
     }
 
-    public void abrirLIst(){
+    public void abrirListPescaIndividual(){
+
+    }
+    public void abrirListGrupo(){
         Intent i = new Intent(getApplicationContext(), GruposExistentes.class);
         ActivityOptionsCompat activityOptionsCompat = ActivityOptionsCompat.makeCustomAnimation(getApplicationContext()
                 , R.transition.fade_in, R.transition.fade_out);
@@ -44,24 +54,8 @@ public class OpcaoPescaActivity extends AppCompatActivity {
     }
 
     public void carregarComponentesOpPesca(){
-        imageView = findViewById(R.id.ImagemGrupo);
-        menu = findViewById(R.id.menuOpcao);
-    }
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_op_pesca, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.deslogar_menu:
-                return true;
-        }
-        return super.onOptionsItemSelected(item);
+        opcaoGrupo = findViewById(R.id.ImagemGrupo);
+        opcaoIndividual = findViewById(R.id.menuOpcaoIndividual);
     }
 
     public boolean onKeyDown(int keyCode, KeyEvent event) {

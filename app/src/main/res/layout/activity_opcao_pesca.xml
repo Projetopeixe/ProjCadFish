@@ -110,12 +110,13 @@
                 android:textSize="22dp"></TextView>
 
             <ImageView
-                android:id="@+id/menuOpcao"
+                android:id="@+id/menuOpcaoIndividual"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="12dp"
+                android:tint="#fff"
                 android:src="@drawable/ic_arrow_forward_black_24dp"></ImageView>
 
         </RelativeLayout>
@@ -154,6 +155,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="12dp"
+                android:tint="#fff"
                 android:src="@drawable/ic_arrow_forward_black_24dp"></ImageView>
 
 
