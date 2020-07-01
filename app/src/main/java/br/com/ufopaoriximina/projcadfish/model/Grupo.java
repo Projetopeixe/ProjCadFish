@@ -6,16 +6,23 @@ public class Grupo {
 
     private int id;
     private String nome;
-    private Bitmap foto;
+    private byte[] foto;
 
-    public Bitmap getFoto() {
+    public Grupo(String nome, byte[] foto, String data) {
+        this.nome = nome;
+        this.foto = foto;
+        this.data = data;
+    }
+
+
+
+    public byte[] getFoto() {
         return foto;
     }
 
-    public void setFoto(Bitmap foto) {
+    public void setFoto(byte[] foto) {
         this.foto = foto;
     }
-
     private String data;
 
     public int getId() {

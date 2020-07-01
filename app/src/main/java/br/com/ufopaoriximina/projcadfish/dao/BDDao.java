@@ -110,7 +110,7 @@ public class BDDao extends DataSource{
         dados = new ContentValues();
 
         dados.put(DataModelGrupo.getNome(), grupo.getNome());
-        dados.put(DataModelGrupo.getFoto(), convertCircleBitmapToByteArray(grupo.getFoto()));
+        dados.put(DataModelGrupo.getFoto(), grupo.getFoto());
         dados.put(DataModelGrupo.getData(), grupo.getData());
 
         sucesso = insert(DataModelGrupo.getTabelaGrupo(), dados);
@@ -192,7 +192,7 @@ public class BDDao extends DataSource{
         dados = new ContentValues();
         dados.put(DataModelGrupo.getId(), grupo.getId());
         dados.put(DataModelGrupo.getNome(), grupo.getNome());
-        dados.put(DataModelGrupo.getFoto(), convertCircleBitmapToByteArray(grupo.getFoto()));
+        dados.put(DataModelGrupo.getFoto(), grupo.getFoto());
         dados.put(DataModelGrupo.getData(), grupo.getData());
 
         sucesso = alterar(DataModelGrupo.getTabelaGrupo(), dados);
