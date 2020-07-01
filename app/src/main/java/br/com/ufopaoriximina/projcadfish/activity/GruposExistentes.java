@@ -21,6 +21,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.app.ActivityOptionsCompat;
 import java.util.ArrayList;
 import br.com.ufopaoriximina.projcadfish.R;
+import br.com.ufopaoriximina.projcadfish.activity.criacao_grupo.ActivityCriarGrupo1;
 import br.com.ufopaoriximina.projcadfish.dao.BDDao;
 import br.com.ufopaoriximina.projcadfish.dao.DataSource;
 import br.com.ufopaoriximina.projcadfish.datamodel.DataModelGrupo;
@@ -87,8 +88,10 @@ public class GruposExistentes extends AppCompatActivity {
     }
 
     public void abrirAddGrupo(){
-        Intent i = new Intent(getApplicationContext(), AddParticipantes.class);
-        startActivity(i);
+        Intent i = new Intent(getApplicationContext(), ActivityCriarGrupo1.class);
+        ActivityOptionsCompat activityOptionsCompat = ActivityOptionsCompat.makeCustomAnimation(getApplicationContext()
+                , R.transition.fade_in, R.transition.fade_out);
+        ActivityCompat.startActivity(GruposExistentes.this, i, activityOptionsCompat.toBundle());
         finish();
     }
 
