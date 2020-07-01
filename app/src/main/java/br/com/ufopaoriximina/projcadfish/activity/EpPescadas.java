@@ -23,14 +23,15 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.app.ActivityOptionsCompat;
 
 import br.com.ufopaoriximina.projcadfish.R;
+import br.com.ufopaoriximina.projcadfish.activity.cadastro_peixes.ActivityCadPeixe1;
 
 public class EpPescadas extends AppCompatActivity {
 
     ListView listView;
     ImageView addEspecie;
     ImageView retornarToOpcao;
-    String mPeixes[] = {"Tambaqui", "Pirarucu"};
-    int icone[] = {R.drawable.icon_individual, R.drawable.icon_individual};
+    String mPeixes[] = {};
+    int icone[] = {};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +43,11 @@ public class EpPescadas extends AppCompatActivity {
         addEspecie.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(),"Hello World", Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(getApplicationContext(), ActivityCadPeixe1.class);
+                ActivityOptionsCompat activityOptionsCompat = ActivityOptionsCompat.makeCustomAnimation(getApplicationContext()
+                        , R.transition.fade_in, R.transition.fade_out);
+                ActivityCompat.startActivity(EpPescadas.this, i, activityOptionsCompat.toBundle());
+                finish();
             }
         });
 

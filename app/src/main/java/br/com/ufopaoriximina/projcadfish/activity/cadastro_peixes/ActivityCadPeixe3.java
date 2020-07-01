@@ -11,6 +11,7 @@ public class ActivityCadPeixe3 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_cad_peixe3);
     }
 }
