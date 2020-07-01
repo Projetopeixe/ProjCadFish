@@ -24,7 +24,13 @@
         <activity
             android:name=".activity.GruposExistentes"
             android:parentActivityName=".activity.OpcaoPescaActivity" />
-        <activity android:name=".activity.AddParticipantes" />
+        <activity android:name=".activity.AddParticipantes" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".activity.OpcaoPescaActivity" />
         <activity android:name=".activity.cadastros_usuarios.cadastro_pescador.Passo5CdPescador" />
         <activity android:name=".activity.cadastros_usuarios.cadastro_pescador.Passo4CdPescador" />
@@ -32,11 +38,7 @@
         <activity android:name=".activity.cadastros_usuarios.cadastro_guia.Passo4CdGuia" />
         <activity android:name=".activity.EpPescadas" />
         <activity android:name=".activity.SplashActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".activity.cadastros_usuarios.cadastro_pescador.Passo3CdPescador"
