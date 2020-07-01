@@ -1,5 +1,6 @@
 package br.com.ufopaoriximina.projcadfish.activity.criacao_grupo;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,7 +11,10 @@ import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.ColorFilter;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.icu.text.UnicodeSetSpanner;
 import android.net.Uri;
 import android.os.Bundle;
@@ -24,6 +28,8 @@ import android.widget.Toast;
 import java.io.ByteArrayOutputStream;
 
 import br.com.ufopaoriximina.projcadfish.R;
+import br.com.ufopaoriximina.projcadfish.activity.AddParticipantes;
+import br.com.ufopaoriximina.projcadfish.activity.EpPescadas;
 import br.com.ufopaoriximina.projcadfish.activity.GruposExistentes;
 import br.com.ufopaoriximina.projcadfish.activity.OpcaoPescaActivity;
 import br.com.ufopaoriximina.projcadfish.config.Permissoes;
@@ -138,12 +144,14 @@ public class ActivityCriarGrupo2 extends AppCompatActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Sucesso ao realizar cadastro");
         builder.setCancelable(false);
-        builder.setMessage("Usuário cadastrado com sucesso!");
-        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+        builder.setMessage("Grupo cadastrado com sucesso!");
+        builder.setPositiveButton("Adicionar Participantes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Intent intent = new Intent(getApplicationContext(), GruposExistentes.class);
-                startActivity(intent);
+                Intent intent = new Intent(getApplicationContext(), AddParticipantes.class);
+                ActivityOptionsCompat activityOptionsCompat = ActivityOptionsCompat.makeCustomAnimation(getApplicationContext()
+                        , R.transition.fade_in, R.transition.fade_out);
+                ActivityCompat.startActivity(ActivityCriarGrupo2.this, intent, activityOptionsCompat.toBundle());
                 finish();
             }
         });
