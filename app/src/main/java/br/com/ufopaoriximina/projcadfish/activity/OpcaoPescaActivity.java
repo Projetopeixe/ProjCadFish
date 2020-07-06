@@ -43,7 +43,11 @@ public class OpcaoPescaActivity extends AppCompatActivity {
     }
 
     public void abrirListPescaIndividual(){
-
+        Intent i = new Intent(getApplicationContext(), EpPescadas.class);
+        ActivityOptionsCompat activityOptionsCompat = ActivityOptionsCompat.makeCustomAnimation(getApplicationContext()
+                , R.transition.fade_in, R.transition.fade_out);
+        ActivityCompat.startActivity(OpcaoPescaActivity.this, i, activityOptionsCompat.toBundle());
+        finish();
     }
     public void abrirListGrupo(){
         Intent i = new Intent(getApplicationContext(), GruposExistentes.class);

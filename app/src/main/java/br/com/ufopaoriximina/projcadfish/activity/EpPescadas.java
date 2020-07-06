@@ -1,7 +1,10 @@
 package br.com.ufopaoriximina.projcadfish.activity;
 
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,22 +17,50 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.app.ActivityOptionsCompat;
 
 import br.com.ufopaoriximina.projcadfish.R;
+import br.com.ufopaoriximina.projcadfish.activity.cadastro_peixes.ActivityCadPeixe1;
 
 public class EpPescadas extends AppCompatActivity {
 
     ListView listView;
-
-    String mPeixes[] = {"Tambaqui", "Pirarucu"};
-    int icone[] = {R.drawable.icon_individual, R.drawable.icon_individual};
+    ImageView addEspecie;
+    ImageView retornarToOpcao;
+    String mPeixes[] = {};
+    int icone[] = {};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_especies_pescadas);
         getSupportActionBar().hide();
+        getComponentesView();
+
+        addEspecie.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(), ActivityCadPeixe1.class);
+                ActivityOptionsCompat activityOptionsCompat = ActivityOptionsCompat.makeCustomAnimation(getApplicationContext()
+                        , R.transition.fade_in, R.transition.fade_out);
+                ActivityCompat.startActivity(EpPescadas.this, i, activityOptionsCompat.toBundle());
+                finish();
+            }
+        });
+
+        retornarToOpcao.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(), OpcaoPescaActivity.class);
+                ActivityOptionsCompat activityOptionsCompat = ActivityOptionsCompat.makeCustomAnimation(getApplicationContext()
+                        , R.transition.fade_in, R.transition.fade_out);
+                ActivityCompat.startActivity(EpPescadas.this, i, activityOptionsCompat.toBundle());
+                finish();
+            }
+        });
 
         listView = findViewById(R.id.listViewEspecies);
 
@@ -76,4 +107,25 @@ public class EpPescadas extends AppCompatActivity {
             return row;
         }
     }
+
+    public void getComponentesView(){
+        addEspecie = findViewById(R.id.btn_add_especie);
+        retornarToOpcao = findViewById(R.id.btn_retornar_to_opcao_pesca);
+    }
+
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        //Handle the back button
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            Intent i = new Intent(getApplicationContext(), OpcaoPescaActivity.class);
+            ActivityOptionsCompat activityOptionsCompat = ActivityOptionsCompat.makeCustomAnimation(getApplicationContext()
+                    , R.transition.fade_in, R.transition.fade_out);
+            ActivityCompat.startActivity(EpPescadas.this, i, activityOptionsCompat.toBundle());
+            finish();
+            return true;
+        } else {
+            return super.onKeyDown(keyCode, event);
+        }
+    }
+
+
 }

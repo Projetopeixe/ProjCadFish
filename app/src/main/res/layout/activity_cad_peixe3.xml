@@ -97,6 +97,19 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.983" />
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tint="@color/colorPrimaryDark"
+                app:layout_constraintBottom_toBottomOf="@+id/editLocal"
+                app:layout_constraintEnd_toEndOf="@+id/editLocal"
+                app:layout_constraintHorizontal_bias="0.935"
+                app:layout_constraintStart_toStartOf="@+id/editLocal"
+                app:layout_constraintTop_toBottomOf="@+id/editTag"
+                app:layout_constraintVertical_bias="0.746"
+                app:srcCompat="@drawable/ic_search_black_24dp" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

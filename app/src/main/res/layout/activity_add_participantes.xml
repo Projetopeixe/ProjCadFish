@@ -6,75 +6,120 @@
     android:fillViewport="true"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
-    android:background="">
+    >
 
-<LinearLayout 
+<androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="20dp">
+    android:layout_height="match_parent">
 
-    <pl.droidsonroids.gif.GifImageView
-        android:layout_width="329dp"
-        android:layout_height="259dp"
-        android:src="@drawable/bg_add_pt" />
-
-    <RelativeLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto"
-            android:text="Adicionar Participantes"
-            android:textColor="#000000"
-            android:textSize="24dp"></TextView>
-
-        <ImageView
-            android:id="@+id/btn_add_participantes"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginEnd="46dp"
-            android:layout_marginRight="66dp"
-            android:foregroundGravity="fill_horizontal|center_vertical|clip_horizontal|center"
-            android:src="@drawable/ic_correto">
-
-        </ImageView>
-    </RelativeLayout>
-
-
-    <RelativeLayout
+    <Toolbar
+        android:id="@+id/toolbar2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <ListView
-            android:id="@+id/listViewAddPt"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="0dp"
-            android:layout_marginBottom="10dp"
-            android:padding="5sp"
-            android:divider="@drawable/listdivider"/>
-
-    </RelativeLayout>
-
-    <Button
-        android:id="@+id/btnCancel"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_gravity="center"
-        android:background="@drawable/button_back_register"
-        android:text="CONTINUAR"
-        android:textColor="@android:color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="70dp"
+        android:background="@drawable/bg_toolbar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/listViewAddPt" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginBottom="10dp"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_height="65dp"
+                android:layout_width="60dp"
+                android:id="@+id/image"
+                android:src="@drawable/padrao"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_marginStart="15dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nome Usuario"
+                    android:textColor="#fff"
+                    android:textSize="18dp"
+                    android:layout_marginTop="20dp"/>
+
+            </LinearLayout>
 
 
-</LinearLayout>
+        </LinearLayout>
+
+    </Toolbar>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="70dp"
+        android:orientation="vertical"
+        android:padding="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar2"
+        app:layout_constraintVertical_bias="0.0">
+
+        <pl.droidsonroids.gif.GifImageView
+            android:layout_width="329dp"
+            android:layout_height="259dp"
+            android:src="@drawable/bg_add_pt" />
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto"
+                android:text="Adicionar Participantes"
+                android:textColor="#000000"
+                android:textSize="24dp"></TextView>
+
+            <ImageView
+                android:id="@+id/btn_add_participantes"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="66dp"
+                android:foregroundGravity="fill_horizontal|center_vertical|clip_horizontal|center"
+                android:src="@drawable/ic_check_black_24dp">
+
+            </ImageView>
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ListView
+                android:id="@+id/listViewAddPt"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="10dp"
+                android:divider="@drawable/listdivider"
+                android:padding="5sp" />
+
+        </RelativeLayout>
+
+
+
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

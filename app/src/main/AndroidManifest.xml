@@ -6,7 +6,7 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:allowBackup="true"
@@ -15,26 +15,30 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.GruposExistentes"
-            android:parentActivityName=".activity.OpcaoPescaActivity">
-
-        </activity>
-        <activity android:name=".activity.AddParticipantes"></activity>
-        <activity android:name=".activity.OpcaoPescaActivity">
-
-        </activity>
-        <activity android:name=".activity.cadastros_usuarios.cadastro_pescador.Passo5CdPescador" />
-        <activity android:name=".activity.cadastros_usuarios.cadastro_pescador.Passo4CdPescador" />
-        <activity android:name=".activity.cadastros_usuarios.cadastro_guia.Passo5CdGuia" />
-        <activity android:name=".activity.cadastros_usuarios.cadastro_guia.Passo4CdGuia">
-
-        </activity>
-        <activity android:name=".activity.SplashActivity">
+        <activity android:name=".activity.criacao_grupo.ActivityCriarGrupo2"></activity>
+        <activity android:name=".activity.criacao_grupo.ActivityCriarGrupo1" />
+        <activity android:name=".activity.cadastro_peixes.ActivityCadPeixe4" />
+        <activity android:name=".activity.cadastro_peixes.ActivityCadPeixe3" />
+        <activity android:name=".activity.cadastro_peixes.ActivityCadPeixe2" />
+        <activity android:name=".activity.cadastro_peixes.ActivityCadPeixe1" />
+        <activity
+            android:name=".activity.GruposExistentes"
+            android:parentActivityName=".activity.OpcaoPescaActivity" />
+        <activity android:name=".activity.AddParticipantes" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".activity.OpcaoPescaActivity" />
+        <activity android:name=".activity.cadastros_usuarios.cadastro_pescador.Passo5CdPescador" />
+        <activity android:name=".activity.cadastros_usuarios.cadastro_pescador.Passo4CdPescador" />
+        <activity android:name=".activity.cadastros_usuarios.cadastro_guia.Passo5CdGuia" />
+        <activity android:name=".activity.cadastros_usuarios.cadastro_guia.Passo4CdGuia" />
+        <activity android:name=".activity.EpPescadas" />
+        <activity android:name=".activity.SplashActivity">
+
         </activity>
         <activity
             android:name=".activity.cadastros_usuarios.cadastro_pescador.Passo3CdPescador"
