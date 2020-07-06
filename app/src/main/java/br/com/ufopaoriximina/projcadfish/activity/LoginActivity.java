@@ -9,6 +9,7 @@ import androidx.core.app.ActivityOptionsCompat;
 import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -31,6 +32,8 @@ public class LoginActivity extends AppCompatActivity  {
     private EditText editEmail, editSenha;
     private Button logar;
     DataSource ds;
+    private static final String ARQUIVO_PREFERENCIA = "ArquivoPreferenc";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +45,34 @@ public class LoginActivity extends AppCompatActivity  {
             @Override
             public void onClick(View v) {
                 logar();
+
+                SharedPreferences preferences = getSharedPreferences(ARQUIVO_PREFERENCIA, 0);
+                SharedPreferences.Editor editor = preferences.edit();
+
+                //Validar nome
+            if ( editEmail.getText().toString().equals("") ){
+                Toast.makeText(getApplicationContext(), "Preencha o campo Email", Toast.LENGTH_LONG).show();
+
+            }else{
+
+                String email = editEmail.getText().toString();
+                editor.putString("email", email);
+                editor.commit();
+                editEmail.setText(email);
+            }
+
+                //Validar senha
+                if ( editSenha.getText().toString().equals("") ){
+                    Toast.makeText(getApplicationContext(), "Preencha o campo Senha", Toast.LENGTH_LONG).show();
+
+                }else{
+
+                    String senha = editSenha.getText().toString();
+                    editor.putString("senha", senha);
+                    editor.commit();
+                    editSenha.setText(senha);
+                }
+
             }
         });
         Permissoes.validarPermissoes(permissoesNecessarias, this, 1);
