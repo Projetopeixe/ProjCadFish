@@ -49,6 +49,11 @@ public class LoginActivity extends AppCompatActivity  {
                 SharedPreferences preferences = getSharedPreferences(ARQUIVO_PREFERENCIA, 0);
                 SharedPreferences.Editor editor = preferences.edit();
 
+                //Intent intent = new Intent(getApplicationContext(), OpcaoPescaActivity.class);
+
+                //Passar dados
+                //intent.putExtra("nome", )
+
                 //Validar nome
             if ( editEmail.getText().toString().equals("") ){
                 Toast.makeText(getApplicationContext(), "Preencha o campo Email", Toast.LENGTH_LONG).show();

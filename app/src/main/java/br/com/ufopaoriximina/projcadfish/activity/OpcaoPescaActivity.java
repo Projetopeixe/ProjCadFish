@@ -15,6 +15,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import br.com.ufopaoriximina.projcadfish.R;
 
@@ -22,6 +23,9 @@ public class OpcaoPescaActivity extends AppCompatActivity {
 
     ImageView opcaoGrupo;
     ImageView opcaoIndividual;
+    ImageView image;
+    private TextView nameUserHader;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +44,7 @@ public class OpcaoPescaActivity extends AppCompatActivity {
                 abrirListGrupo();
             }
         });
+
     }
 
     public void abrirListPescaIndividual(){
@@ -60,6 +65,8 @@ public class OpcaoPescaActivity extends AppCompatActivity {
     public void carregarComponentesOpPesca(){
         opcaoGrupo = findViewById(R.id.ImagemGrupo);
         opcaoIndividual = findViewById(R.id.menuOpcaoIndividual);
+        image = findViewById(R.id.fotoUser);
+        nameUserHader = findViewById(R.id.nomeUser);
     }
 
     public boolean onKeyDown(int keyCode, KeyEvent event) {
